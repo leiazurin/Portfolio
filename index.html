@@ -156,17 +156,46 @@ footer { background: linear-gradient(90deg,#6a11cb,#2575fc); color: #fff; text-a
 #backToTop:hover { background: #2575fc; }
 
 /* Responsive */
-@media(max-width:768px){
+@media screen and (max-width: 768px) {
+
   header h1 { font-size: 2.5rem; }
   header .hero-subtext { font-size: 1.4rem; }
   header p:nth-of-type(2) { font-size: 1.1rem; }
-  .hero-buttons { flex-direction: column; gap: 12px; }
-  .hero-buttons a, .hire-btn { width: 100%; max-width: 280px; justify-content: center; }
-  .side-nav { position: static; flex-direction: row; justify-content: center; transform: none; margin: 20px 0; }
-  #about { flex-direction: column; text-align: center; padding: 40px 20px; }
-  .skills-grid, .services-grid { grid-template-columns: 1fr; }
-  .tools-grid { flex-direction: column; align-items: center; }
+
+  .hero-buttons { 
+    flex-direction: column; 
+    gap: 12px; 
+  }
+
+  .hero-buttons a, 
+  .hire-btn { 
+    width: 100%; 
+    max-width: 280px; 
+    justify-content: center; 
+  }
+
+  /* ❗If you are HIDING the side nav on mobile, remove this styling */
+  .side-nav { 
+    display: none !important; 
+  }
+
+  #about { 
+    flex-direction: column; 
+    text-align: center; 
+    padding: 40px 20px; 
+  }
+
+  .skills-grid, 
+  .services-grid { 
+    grid-template-columns: 1fr; 
+  }
+
+  .tools-grid { 
+    flex-direction: column; 
+    align-items: center; 
+  }
 }
+
 </style>
 </head>
 <body>
@@ -181,8 +210,6 @@ footer { background: linear-gradient(90deg,#6a11cb,#2575fc); color: #fff; text-a
   <a href="#skills"><i class="fas fa-lightbulb"></i></a>
   <a href="#tools"><i class="fas fa-tools"></i></a>
   <a href="#services"><i class="fas fa-cogs"></i></a>
-  <a href="#portfolio"><i class="fas fa-folder-open"></i></a>
-  <a href="#testimonials"><i class="fas fa-comments"></i></a>
   <a href="#contact"><i class="fas fa-envelope"></i></a>
 </div>
 
