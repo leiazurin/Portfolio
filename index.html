@@ -44,6 +44,8 @@ header .hero-buttons { display: flex; gap: 15px; flex-wrap: wrap; justify-conten
 .btn-contact:hover { transform: scale(1.05); box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
 .btn-facebook { background-color: #000; color: #fff; }
 .btn-facebook:hover { background-color: #1877f2; color: #fff; }
+.btn-gmail {  background-color: #000; color: #fff;}
+.btn-gmail:hover {  background-color: #fff; color: #000;}
 .btn-onlinejobs { background-color: #000; color: #fff; }
 .btn-onlinejobs:hover { background-color: #f7a900; color: #fff; }
 .btn-contact-secondary { background-color: #6a11cb; color: #fff; }
@@ -147,17 +149,21 @@ footer { background: linear-gradient(90deg,#6a11cb,#2575fc); color: #fff; text-a
 <header>
   <h1>Leira Marie Azurin</h1>
   <p>Virtual Assistant | Lead Generation & Data Entry Specialist</p>
-  <div class="hero-buttons">
-    <a href="https://www.facebook.com/lei.lacra.azurin" class="btn-contact btn-facebook" target="_blank">
-      <i class="fab fa-facebook-f"></i> Facebook
-    </a>
-    <a href="https://www.onlinejobs.ph/jobseekers/info/2882637" class="btn-contact btn-onlinejobs" target="_blank">
-      <i class="fas fa-briefcase"></i> OnlineJobs.ph
-    </a>
-    <a href="https://raw.githubusercontent.com/leiazurin/Portfolio/refs/heads/main/LeiraMarieAzurin_Resume.pdf" class="btn-contact btn-contact-secondary" download>
-      <i class="fas fa-file-download"></i> Download Resume
-    </a>
-  </div>
+  <div style="display:flex; gap:15px; flex-wrap:wrap; justify-content:center; margin-bottom:20px;">
+  <a href="https://www.facebook.com/lei.lacra.azurin" class="btn-contact btn-facebook" target="_blank">
+    <i class="fab fa-facebook-f"></i> Facebook
+  </a>
+  <a href="https://www.onlinejobs.ph/jobseekers/info/2882637" class="btn-contact btn-onlinejobs" target="_blank">
+    <i class="fas fa-briefcase"></i> OnlineJobs.ph
+  </a>
+  <a href="https://mail.google.com/mail/?view=cm&fs=1&to=leiramarieazurin@gmail.com&su=Hello&body=Hi%20Leira!" class="btn-contact btn-gmail" target="_blank">
+  <i class="fas fa-envelope"></i> Gmail
+</a>
+
+  <a href="https://raw.githubusercontent.com/leiazurin/Portfolio/refs/heads/main/LeiraMarieAzurin_Resume.pdf" class="btn-contact btn-contact-secondary" download>
+    <i class="fas fa-file-download"></i> Download Resume
+  </a>
+</div>
 </header>
 
 <!-- About Section -->
@@ -254,11 +260,15 @@ footer { background: linear-gradient(90deg,#6a11cb,#2575fc); color: #fff; text-a
     <a href="https://www.onlinejobs.ph/jobseekers/info/2882637" class="btn-contact btn-onlinejobs" target="_blank">
       <i class="fas fa-briefcase"></i> OnlineJobs.ph
     </a>
+    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=leiramarieazurin@gmail.com" class="btn-contact btn-gmail" target="_blank">
+      <i class="fas fa-envelope"></i> Gmail
+    </a>
     <a href="https://raw.githubusercontent.com/leiazurin/Portfolio/refs/heads/main/LeiraMarieAzurin_Resume.pdf" class="btn-contact btn-contact-secondary" download>
       <i class="fas fa-file-download"></i> Download Resume
     </a>
   </div>
 </section>
+
 
 <footer>
   &copy; 2025 Leira Marie Azurin | Virtual Assistant Portfolio
