@@ -40,9 +40,10 @@ header {
   background: linear-gradient(to right, rgba(106,17,203,0.7), rgba(37,117,252,0.7)),
               url('https://raw.githubusercontent.com/leiazurin/Portfolio/refs/heads/main/75O8Qia.jpg') no-repeat center center;
   background-size: cover;
+  transition: all 0.3s;
 }
 
-/* HIRE ME NOW BUTTON */
+/* Hero Buttons */
 .hire-btn {
   display: inline-flex;
   align-items: center;
@@ -55,23 +56,16 @@ header {
   background-color: #ff4081;
   color: #fff;
   text-decoration: none;
-  margin: 20px 0; /* space below hero text */
+  margin: 20px 0;
   animation: bounce 1.5s infinite;
   transition: transform 0.3s, box-shadow 0.3s;
 }
-
 .hire-btn:hover {
   transform: translateY(-3px) scale(1.05);
   box-shadow: 0 8px 25px rgba(0,0,0,0.2);
   background-color: #e73370;
 }
-
-@keyframes bounce {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
-}
-
-
+@keyframes bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
 
 header h1 { font-size: 3.5rem; line-height: 1.2; margin-bottom: 20px; opacity: 0; transform: translateY(-20px); animation: fadeInUp 1s forwards 0.3s; }
 header .hero-subtext { font-family: 'Montserrat', sans-serif; font-weight: 100; font-size: 1.8rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 15px; opacity: 0; transform: translateY(-10px); animation: fadeInUp 1s forwards 0.5s; }
@@ -98,15 +92,14 @@ header .hero-buttons a:hover { transform: translateY(-3px) scale(1.05); box-shad
 .btn-contact-secondary:hover { background-color: #2575fc; color: #fff; }
 
 /* About Section */
-#about { display: flex; flex-wrap: wrap; align-items: center; gap: 40px; position: relative; background-color: #fff; border-radius: 15px; padding: 60px 20px; margin-bottom: 40px; }
+#about { display: flex; flex-wrap: wrap; align-items: center; gap: 40px; position: relative; background-color: #fff; border-radius: 15px; padding: 60px 20px; margin-bottom: 40px; justify-content: center; text-align: center; }
 body.dark-mode #about { background-color: #1e1e1e; }
-#about::before { content: ''; position: absolute; left: -50px; top: 20px; width: 300px; height: 300px; background: radial-gradient(circle, rgba(106,17,203,0.15), transparent); z-index: -1; border-radius: 50%; }
 #about img { max-width: 300px; border-radius: 15px; box-shadow: 0px 10px 25px rgba(0,0,0,0.15); transition: transform 0.4s ease, box-shadow 0.4s ease; }
 #about img:hover { transform: scale(1.08) rotate(1deg); box-shadow: 0px 15px 35px rgba(0,0,0,0.2); }
-#about .text { flex: 1; }
+#about .text { flex: 1; max-width: 600px; text-align: center; }
 #about .text strong { color: #6a11cb; }
 body.dark-mode #about .text strong { color: #ff9800; }
-.education { background-color: #e0f7fa; padding: 15px 20px; border-radius: 12px; margin-top: 15px; font-weight: bold; }
+.education { background-color: #e0f7fa; padding: 15px 20px; border-radius: 12px; margin-top: 15px; font-weight: bold; display: inline-block; }
 body.dark-mode .education { background-color: #333; }
 
 /* Timeline */
@@ -124,7 +117,7 @@ body.dark-mode .timeline-item p { color: #e0e0e0; }
 .timeline-item ul { margin-left: 20px; }
 
 /* Skills */
-.skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; }
+.skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; justify-items: center; }
 .skill-card { background-color: #fff; padding: 20px; border-radius: 15px; text-align: center; box-shadow: 0px 5px 20px rgba(0,0,0,0.08); font-weight: 500; display: flex; flex-direction: column; align-items: center; gap: 10px; transition: transform 0.3s; }
 body.dark-mode .skill-card { background-color: #1e1e1e; }
 .skill-card i { font-size: 2rem; animation: iconBounce 1s infinite alternate; transition: color 0.3s; }
@@ -136,6 +129,12 @@ body.dark-mode .skill-card { background-color: #1e1e1e; }
 body.dark-mode .tool { background-color: #1e1e1e; }
 .tool i { font-size: 1.5rem; animation: iconBounce 1s infinite alternate; }
 .tool:hover { transform: translateY(-5px); }
+
+/* Services */
+.services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; justify-items: center; }
+.service-card { background-color: #fff; padding: 20px; border-radius: 15px; text-align: center; box-shadow: 0px 5px 20px rgba(0,0,0,0.08); transition: transform 0.3s, box-shadow 0.3s; }
+body.dark-mode .service-card { background-color: #1e1e1e; }
+.service-card:hover { transform: translateY(-7px); box-shadow: 0px 12px 30px rgba(0,0,0,0.12); }
 
 /* Contact */
 #contact { text-align: center; }
@@ -159,12 +158,13 @@ footer { background: linear-gradient(90deg,#6a11cb,#2575fc); color: #fff; text-a
 /* Responsive */
 @media(max-width:768px){
   header h1 { font-size: 2.5rem; }
-  header p { font-size: 1.2rem; }
-  .hero-buttons a { width: 100%; max-width: 250px; justify-content: center; }
-  .side-nav { position: static; flex-direction: row; justify-content: center; transform: none; margin-bottom:20px; }
-  #about { flex-direction: column; text-align: center; }
-  .skill-card, .tool { justify-content: center; }
-  .services-grid, .skills-grid { grid-template-columns: 1fr; }
+  header .hero-subtext { font-size: 1.4rem; }
+  header p:nth-of-type(2) { font-size: 1.1rem; }
+  .hero-buttons { flex-direction: column; gap: 12px; }
+  .hero-buttons a, .hire-btn { width: 100%; max-width: 280px; justify-content: center; }
+  .side-nav { position: static; flex-direction: row; justify-content: center; transform: none; margin: 20px 0; }
+  #about { flex-direction: column; text-align: center; padding: 40px 20px; }
+  .skills-grid, .services-grid { grid-template-columns: 1fr; }
   .tools-grid { flex-direction: column; align-items: center; }
 }
 </style>
@@ -181,6 +181,8 @@ footer { background: linear-gradient(90deg,#6a11cb,#2575fc); color: #fff; text-a
   <a href="#skills"><i class="fas fa-lightbulb"></i></a>
   <a href="#tools"><i class="fas fa-tools"></i></a>
   <a href="#services"><i class="fas fa-cogs"></i></a>
+  <a href="#portfolio"><i class="fas fa-folder-open"></i></a>
+  <a href="#testimonials"><i class="fas fa-comments"></i></a>
   <a href="#contact"><i class="fas fa-envelope"></i></a>
 </div>
 
@@ -192,13 +194,11 @@ footer { background: linear-gradient(90deg,#6a11cb,#2575fc); color: #fff; text-a
   <p class="hero-subtext">A RELIABLE PARTNER FOR YOUR ONLINE BUSINESS</p>
   <p>Virtual Assistant | Lead Generation | Data Entry Specialist</p>
 
-  <!-- HIRE ME NOW BUTTON CENTERED -->
   <a href="https://mail.google.com/mail/?view=cm&fs=1&to=leiramarieazurin@gmail.com&su=Inquiry%20from%20Portfolio&body=Hello%20Leira%2C" 
      class="btn-contact hire-btn" target="_blank">
      <i class="fas fa-envelope"></i> Hire Me Now
   </a>
 
-  <!-- Existing Hero Buttons -->
   <div class="hero-buttons">
     <a href="https://www.facebook.com/lei.lacra.azurin" class="btn-contact btn-facebook" target="_blank"><i class="fab fa-facebook-f"></i> Facebook</a>
     <a href="https://www.onlinejobs.ph/jobseekers/info/2882637" class="btn-contact btn-onlinejobs" target="_blank"><i class="fas fa-briefcase"></i> OnlineJobs.ph</a>
@@ -359,5 +359,3 @@ toggle.addEventListener('click', () => {
 
 </body>
 </html>
-
-
