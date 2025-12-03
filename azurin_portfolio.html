@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Leira Marie Azurin | Virtual Assistant Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+/* Global Styles */
+* { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Roboto', sans-serif; scroll-behavior: smooth; }
+body { line-height: 1.6; color: #333; background-color: #f4f5f7; }
+a { text-decoration: none; color: inherit; }
+section { padding: 80px 20px; opacity: 0; transform: translateY(30px); transition: all 0.8s ease; }
+section.visible { opacity: 1; transform: translateY(0); }
+h1,h2,h3 { margin-bottom: 20px; }
+.container { max-width: 1000px; margin: 0 auto; }
+
+/* Side Navigation */
+.side-nav { position: fixed; top: 50%; left: 20px; transform: translateY(-50%); display: flex; flex-direction: column; gap: 20px; z-index: 1000; }
+.side-nav a { display: flex; align-items: center; justify-content: center; width: 50px; height: 50px; background: linear-gradient(145deg,#6a11cb,#2575fc); color:#fff; border-radius: 50%; font-size: 1.2rem; transition: 0.3s; }
+.side-nav a.active, .side-nav a:hover { background: linear-gradient(145deg,#2575fc,#6a11cb); }
+
+/* Hero Section */
+header {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #fff;
+  background: linear-gradient(to right, rgba(106,17,203,0.7), rgba(37,117,252,0.7)), url('https://i.imgur.com/s86ARUp.jpeg') no-repeat center center/cover;
+}
+header h1 { font-size: 3rem; margin-bottom: 15px; opacity: 0; transform: translateY(-20px); animation: fadeInUp 1s forwards 0.3s; }
+header p { font-size: 1.3rem; margin-bottom: 30px; opacity: 0; transform: translateY(-20px); animation: fadeInUp 1s forwards 0.6s; }
+.btn-contact { display: inline-block; padding: 14px 35px; border-radius: 50px; font-weight: bold; transition: 0.3s; opacity: 0; transform: translateY(-20px); animation: fadeInUp 1s forwards 0.9s; }
+.btn-contact:hover { opacity:1; transform: translateY(0); }
+.btn-contact-primary { background-color: #fff; color: #2575fc; margin-right: 15px; }
+.btn-contact-primary:hover { background-color: #f1f1f1; }
+.btn-contact-secondary { background-color: #6a11cb; color: #fff; }
+.btn-contact-secondary:hover { background-color: #2575fc; }
+
+/* About Section */
+#about { display: flex; flex-wrap: wrap; align-items: center; gap: 40px; }
+#about img { max-width: 300px; border-radius: 15px; box-shadow: 0px 10px 25px rgba(0,0,0,0.15); transition: transform 0.4s ease, box-shadow 0.4s ease; }
+#about img:hover { transform: scale(1.08) rotate(1deg); box-shadow: 0px 15px 35px rgba(0,0,0,0.2); }
+#about .text { flex: 1; }
+.education { background-color: #e0f7fa; color: #333; padding: 15px 20px; border-radius: 12px; margin-top: 15px; font-weight: bold; }
+
+/* Experience Cards */
+.experience-card { background-color: #fff; border-left: 4px solid #6a11cb; border-radius: 15px; padding: 25px; margin-bottom: 20px; box-shadow: 0px 5px 25px rgba(0,0,0,0.1); transition: all 0.3s ease; }
+.experience-card:hover { background-color: #f7f6fb; transform: translateY(-5px); box-shadow: 0px 10px 30px rgba(0,0,0,0.12); }
+
+/* Skills Grid */
+.skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; }
+.skill-card { background-color: #fff; padding: 20px; border-radius: 15px; text-align: center; box-shadow: 0px 5px 20px rgba(0,0,0,0.08); font-weight: 500; display: flex; flex-direction: column; align-items: center; gap: 10px; transition: transform 0.3s, background-color 0.3s; }
+.skill-card i { font-size: 2rem; color: #6a11cb; animation: iconBounce 1s infinite alternate; transition: color 0.3s; }
+.skill-card:hover { transform: translateY(-5px); background-color: #f0f0ff; }
+.skill-card:hover i { color: #2575fc; }
+
+/* Tools Grid */
+.tools-grid { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; }
+.tool { background-color: #fff; padding: 15px 25px; border-radius: 15px; box-shadow: 0px 5px 20px rgba(0,0,0,0.08); text-align: center; font-weight: bold; display: flex; align-items: center; gap: 10px; transition: transform 0.3s, background-color 0.3s; }
+.tool i { font-size: 1.5rem; color: #2575fc; animation: iconBounce 1s infinite alternate; }
+.tool:hover { transform: translateY(-5px); background-color: #f0f0ff; }
+
+/* Services Grid */
+.services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+.service-card { background-color: #fff; padding: 20px; border-radius: 15px; text-align: center; box-shadow: 0px 5px 20px rgba(0,0,0,0.08); transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s; }
+.service-card:hover { transform: translateY(-7px); box-shadow: 0px 12px 30px rgba(0,0,0,0.12); background-color: #f7f6fb; }
+
+/* Contact Form */
+#contact form { max-width: 600px; margin: 0 auto; display: flex; flex-direction: column; gap: 15px; }
+#contact input, #contact textarea { padding: 14px; border-radius: 12px; border: 1px solid #ccc; background-color: #fff; }
+#contact button { padding: 14px; border: none; border-radius: 50px; background: linear-gradient(145deg,#6a11cb,#2575fc); color: #fff; font-weight: bold; cursor: pointer; transition: 0.3s; }
+#contact button:hover { background: linear-gradient(145deg,#2575fc,#6a11cb); }
+
+/* Footer */
+footer { background-color: #1a1a1a; color: #f4f5f7; text-align: center; padding: 20px; }
+
+/* Animations */
+@keyframes fadeInUp { 0% { opacity: 0; transform: translateY(-20px); } 100% { opacity: 1; transform: translateY(0); } }
+@keyframes iconBounce { 0% { transform: translateY(0); } 100% { transform: translateY(-8px); } }
+
+/* Responsive */
+@media(max-width: 1024px){ .side-nav { left: 10px; gap: 15px; } }
+@media(max-width: 768px){ body { flex-direction: column; } .side-nav { position: static; flex-direction: row; justify-content: center; transform: none; margin-bottom: 20px; } #about { flex-direction: column; text-align: center; } .skill-card, .tool { justify-content: center; } header { padding: 100px 20px 60px 20px; } }
+</style>
+</head>
+<body>
+
+<!-- Side Navigation -->
+<div class="side-nav">
+  <a href="#about" class="active"><i class="fas fa-user"></i></a>
+  <a href="#experience"><i class="fas fa-briefcase"></i></a>
+  <a href="#skills"><i class="fas fa-lightbulb"></i></a>
+  <a href="#tools"><i class="fas fa-tools"></i></a>
+  <a href="#services"><i class="fas fa-cogs"></i></a>
+  <a href="#contact"><i class="fas fa-envelope"></i></a>
+</div>
+
+<div style="flex:1; margin-left:80px;">
+
+<!-- Hero Section -->
+<header>
+  <h1>Leira Marie Azurin</h1>
+  <p>Virtual Assistant | Lead Generation & Data Entry Specialist</p>
+  <a href="#contact" class="btn-contact btn-contact-primary">Contact Me</a>
+  <a href="LeiraMarieAzurin_Resume.pdf" class="btn-contact btn-contact-secondary" download>Download Resume</a>
+</header>
+
+<!-- About Section -->
+<section id="about" class="container">
+  <img src="https://i.imgur.com/75O8QiQ.jpeg" alt="Leira Marie Azurin Photo">
+  <div class="text">
+    <h2>About Me</h2>
+    <p>Reliable and organized professional skilled in data encoding, online research, and client support, with proven experience in government administration and e-commerce operations. Ready to provide efficient virtual assistance for lead generation and data entry tasks.</p>
+    <div class="education">AMA Computer College – Santiago Campus | Bachelor of Science in Computer Engineering</div>
+    <p><strong>Email:</strong> leiramarieazurin@gmail.com | <strong>Phone:</strong> +639687598458 / +639651529976 | <strong>Location:</strong> Santiago City, Isabela, Philippines</p>
+  </div>
+</section>
+
+<!-- Experience Section -->
+<section id="experience" class="container">
+  <h2>Professional Experience</h2>
+  <div class="experience-card">
+    <h3>Support Staff</h3>
+    <p><strong>4th Congressional District Office of Isabela | 7/2024 – 9/2025</strong></p>
+    <ul>
+      <li>Managed and encoded client data for educational and medical assistance programs.</li>
+      <li>Assisted constituents with inquiries, ensuring efficient and client-centered support.</li>
+      <li>Coordinated with teams for program implementation and event support.</li>
+    </ul>
+  </div>
+  <div class="experience-card">
+    <h3>Facebook Page Manager</h3>
+    <p><strong>K Gold Beauty Essentials Corp. | Remote | 11/2023 – 7/2024</strong></p>
+    <ul>
+      <li>Managed posts, engagement, product updates, and ad campaigns.</li>
+      <li>Responded to customer inquiries and tracked orders to delivery.</li>
+    </ul>
+  </div>
+  <div class="experience-card">
+    <h3>Non-Voice Chat Support Representative</h3>
+    <p><strong>K Gold Beauty Essentials Corp. | 3/2021 – 9/2021</strong></p>
+    <ul>
+      <li>Handled chat-based customer support and order processing.</li>
+      <li>Maintained accurate records using Google Sheets and ensured timely delivery.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- Skills Section -->
+<section id="skills" class="container">
+  <h2>Core Competencies</h2>
+  <div class="skills-grid">
+    <div class="skill-card"><i class="fas fa-keyboard"></i> Data Entry & Database Management</div>
+    <div class="skill-card"><i class="fas fa-magnifying-glass"></i> Lead Generation & Online Research</div>
+    <div class="skill-card"><i class="fas fa-file-alt"></i> Administrative & Clerical Support</div>
+    <div class="skill-card"><i class="fas fa-headset"></i> Customer Service (Non-Voice)</div>
+    <div class="skill-card"><i class="fab fa-facebook"></i> Social Media Management</div>
+    <div class="skill-card"><i class="fas fa-box"></i> Order Tracking & Fulfillment</div>
+    <div class="skill-card"><i class="fas fa-eye"></i> Attention to Detail & Time Management</div>
+    <div class="skill-card"><i class="fas fa-laptop-code"></i> Independent Remote Work</div>
+  </div>
+</section>
+
+<!-- Tools Section -->
+<section id="tools" class="container">
+  <h2>Tools & Platforms</h2>
+  <div class="tools-grid">
+    <div class="tool"><i class="fas fa-file-excel"></i> Google Workspace</div>
+    <div class="tool"><i class="fas fa-file-word"></i> Microsoft Office</div>
+    <div class="tool"><i class="fab fa-facebook"></i> Facebook Management</div>
+    <div class="tool"><i class="fas fa-bullhorn"></i> Meta Ads</div>
+    <div class="tool"><i class="fas fa-database"></i> CRM & Databases</div>
+    <div class="tool"><i class="fas fa-comment-dots"></i> Chat Support Tools</div>
+  </div>
+</section>
+
+<!-- Services Section -->
+<section id="services" class="container">
+  <h2>Services</h2>
+  <div class="services-grid">
+    <div class="service-card">Lead Generation & Prospect Research</div>
+    <div class="service-card">Data Entry & Database Management</div>
+    <div class="service-card">CRM Updates & Client Records</div>
+    <div class="service-card">Order Tracking & Fulfillment</div>
+    <div class="service-card">Social Media Posting & Engagement</div>
+    <div class="service-card">Chat Support & Customer Inquiry Handling</div>
+  </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" class="container">
+  <h2>Contact Me</h2>
+  <form action="mailto:leiramarieazurin@gmail.com" method="POST" enctype="text/plain">
+    <input type="text" name="name" placeholder="Your Name" required>
+    <input type="email" name="email" placeholder="Your Email" required>
+    <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+    <button type="submit">Send Message</button>
+  </form>
+</section>
+
+<footer>
+  &copy; 2025 Leira Marie Azurin | Virtual Assistant Portfolio
+</footer>
+
+<script>
+// Scroll Animation
+const sections = document.querySelectorAll('section');
+const observer = new IntersectionObserver((entries, observer) => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+},{ threshold: 0.1 });
+sections.forEach(section => observer.observe(section));
+
+// Highlight Active Side Nav & Smooth Scroll
+const navLinks = document.querySelectorAll('.side-nav a');
+navLinks.forEach(anchor => {
+  anchor.addEventListener('click', function(e) {
+    e.preventDefault();
+    document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+  });
+});
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(section => {
+    const sectionTop = section.offsetTop - 150;
+    if(scrollY >= sectionTop){ current = section.getAttribute('id'); }
+  });
+  navLinks.forEach(link => link.classList.remove('active'));
+  document.querySelector('.side-nav a[href="#'+current+'"]')?.classList.add('active');
+});
+</script>
+
+</body>
+</html>
