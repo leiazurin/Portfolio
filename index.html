@@ -32,7 +32,7 @@ header {
   align-items: center;
   text-align: center;
   color: #fff;
-  background: linear-gradient(to right, rgba(106,17,203,0.7), rgba(37,117,252,0.7)), url('https://github.com/leiazurin/Portfolio/blob/main/75O8Qia.jpg') no-repeat center center/cover;
+  background: linear-gradient(to right, rgba(106,17,203,0.7), rgba(37,117,252,0.7)), url('https://raw.githubusercontent.com/leiazurin/Portfolio/refs/heads/main/75O8Qia.jpg') no-repeat center center/cover;
 }
 header h1 { font-size: 3rem; margin-bottom: 15px; opacity: 0; transform: translateY(-20px); animation: fadeInUp 1s forwards 0.3s; }
 header p { font-size: 1.3rem; margin-bottom: 30px; opacity: 0; transform: translateY(-20px); animation: fadeInUp 1s forwards 0.6s; }
@@ -108,13 +108,11 @@ footer { background-color: #333; color: #fff; text-align: center; padding: 20px;
 <header>
   <h1>Leira Marie Azurin</h1>
   <p>Virtual Assistant | Lead Generation & Data Entry Specialist</p>
-  <a href="#contact" class="btn-contact btn-contact-primary">Contact Me</a>
-  <a href="https://github.com/leiazurin/Portfolio/blob/main/LeiraMarieAzurin_Resume.pdf" class="btn-contact btn-contact-secondary" download>Download Resume</a>
 </header>
 
 <!-- About Section -->
 <section id="about" class="container">
-  <img src="https://github.com/leiazurin/Portfolio/blob/main/75O8QiQ.jpg" alt="Leira Marie Azurin Photo">
+  <img src="https://raw.githubusercontent.com/leiazurin/Portfolio/refs/heads/main/75O8QiQ.jpg" alt="Leira Marie Azurin Photo">
   <div class="text">
     <h2>About Me</h2>
     <p>Reliable and organized professional skilled in data encoding, online research, and client support, with proven experience in government administration and e-commerce operations. Ready to provide efficient virtual assistance for lead generation and data entry tasks.</p>
@@ -197,6 +195,17 @@ footer { background-color: #333; color: #fff; text-align: center; padding: 20px;
 <!-- Contact Section -->
 <section id="contact" class="container">
   <h2>Contact Me</h2>
+  <div style="display:flex; gap:15px; flex-wrap:wrap; justify-content:center; margin-bottom:20px;">
+    <a href="https://www.facebook.com/lei.lacra.azurin" class="btn-contact btn-facebook" target="_blank">
+      <i class="fab fa-facebook-f"></i> Facebook
+    </a>
+    <a href="https://www.onlinejobs.ph/jobseekers/info/2882637" class="btn-contact btn-onlinejobs" target="_blank">
+      <i class="fas fa-briefcase"></i> OnlineJobs.ph
+    </a>
+    <a href="https://raw.githubusercontent.com/leiazurin/Portfolio/refs/heads/main/LeiraMarieAzurin_Resume.pdf" class="btn-contact btn-contact-secondary" download>
+      <i class="fas fa-file-download"></i> Download Resume
+    </a>
+  </div>
   <form action="mailto:leiramarieazurin@gmail.com" method="POST" enctype="text/plain">
     <input type="text" name="name" placeholder="Your Name" required>
     <input type="email" name="email" placeholder="Your Email" required>
@@ -204,6 +213,19 @@ footer { background-color: #333; color: #fff; text-align: center; padding: 20px;
     <button type="submit">Send Message</button>
   </form>
 </section>
+
+<style>
+/* Button Styles for Contact Section */
+.btn-contact { display: inline-flex; align-items: center; gap: 8px; padding: 14px 25px; border-radius: 50px; font-weight: bold; text-decoration: none; transition: 0.3s; }
+.btn-facebook { background-color: #000; color: #fff; }
+.btn-facebook:hover { background-color: #fff; color: #000; }
+.btn-onlinejobs { background-color: #000; color: #fff; }
+.btn-onlinejobs:hover { background-color: #fff; color: #000; }
+.btn-contact-secondary { background-color: #6a11cb; color: #fff; }
+.btn-contact-secondary:hover { background-color: #2575fc; color: #fff; }
+</style>
+
+
 
 <footer>
   &copy; 2025 Leira Marie Azurin | Virtual Assistant Portfolio
@@ -243,5 +265,3 @@ window.addEventListener('scroll', () => {
 
 </body>
 </html>
-
-
