@@ -32,11 +32,68 @@ header {
   align-items: center;
   text-align: center;
   color: #fff;
-  background: linear-gradient(to right, rgba(106,17,203,0.7), rgba(37,117,252,0.7)), url('https://raw.githubusercontent.com/leiazurin/Portfolio/refs/heads/main/75O8Qia.jpg') no-repeat center center/cover;
+  padding: 60px 20px 40px 20px; /* more breathing space on top */
+  background: linear-gradient(to right, rgba(106,17,203,0.7), rgba(37,117,252,0.7)),
+              url('https://raw.githubusercontent.com/leiazurin/Portfolio/refs/heads/main/75O8Qia.jpg') no-repeat center center;
+  background-size: cover;
 }
-header h1 { font-size: 3rem; margin-bottom: 15px; opacity: 0; transform: translateY(-20px); animation: fadeInUp 1s forwards 0.3s; }
-header p { font-size: 1.3rem; margin-bottom: 30px; opacity: 0; transform: translateY(-20px); animation: fadeInUp 1s forwards 0.6s; }
-header .hero-buttons { display: flex; gap: 15px; flex-wrap: wrap; justify-content: center; opacity: 0; transform: translateY(-20px); animation: fadeInUp 1s forwards 0.9s; }
+
+header h1 {
+  font-size: 3.5rem;
+  line-height: 1.2;
+  margin-bottom: 20px; /* extra space below heading */
+  opacity: 0;
+  transform: translateY(-20px);
+  animation: fadeInUp 1s forwards 0.3s;
+}
+
+header .hero-subtext {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 100;
+  font-size: 1.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 15px; /* small gap to niche line */
+  opacity: 0;
+  transform: translateY(-10px);
+  animation: fadeInUp 1s forwards 0.5s;
+}
+
+header p:nth-of-type(2) {  /* niche line */
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: #fff;
+  margin-bottom: 35px;  /* larger gap before buttons */
+  text-shadow: 1px 1px 6px rgba(0,0,0,0.4);
+  opacity: 0;
+  transform: translateY(-10px);
+  animation: fadeInUp 1s forwards 0.7s;
+}
+
+header .hero-buttons {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  justify-content: center;
+  opacity: 0;
+  transform: translateY(-10px);
+  animation: fadeInUp 1s forwards 0.9s;
+}
+
+header .hero-buttons a {
+  min-width: 180px;
+  padding: 14px 25px;
+  font-size: 1rem;
+}
+
+
+/* Responsive */
+@media(max-width:768px){
+  header h1 { font-size: 2.5rem; }
+  header p { font-size: 1.2rem; }
+  .hero-buttons a { width: 100%; max-width: 250px; justify-content: center; }
+}
+
 
 /* Buttons */
 .btn-contact { display: inline-flex; align-items: center; gap: 8px; padding: 14px 25px; border-radius: 50px; font-weight: bold; text-decoration: none; transition: all 0.3s; }
@@ -147,24 +204,25 @@ footer { background: linear-gradient(90deg,#6a11cb,#2575fc); color: #fff; text-a
 
 <!-- Hero Section -->
 <header>
-  <h1>Leira Marie Azurin</h1>
+  <h1>I'm Leira Marie Azurin, at your service!</h1>
+  <p class="hero-subtext">A RELIABLE PARTNER FOR YOUR ONLINE BUSINESS</p>
   <p>Virtual Assistant | Lead Generation & Data Entry Specialist</p>
-  <div style="display:flex; gap:15px; flex-wrap:wrap; justify-content:center; margin-bottom:20px;">
-  <a href="https://www.facebook.com/lei.lacra.azurin" class="btn-contact btn-facebook" target="_blank">
-    <i class="fab fa-facebook-f"></i> Facebook
-  </a>
-  <a href="https://www.onlinejobs.ph/jobseekers/info/2882637" class="btn-contact btn-onlinejobs" target="_blank">
-    <i class="fas fa-briefcase"></i> OnlineJobs.ph
-  </a>
-  <a href="https://mail.google.com/mail/?view=cm&fs=1&to=leiramarieazurin@gmail.com&su=Hello&body=Hi%20Leira!" class="btn-contact btn-gmail" target="_blank">
-  <i class="fas fa-envelope"></i> Gmail
-</a>
-
-  <a href="https://raw.githubusercontent.com/leiazurin/Portfolio/refs/heads/main/LeiraMarieAzurin_Resume.pdf" class="btn-contact btn-contact-secondary" download>
-    <i class="fas fa-file-download"></i> Download Resume
-  </a>
-</div>
+  <div class="hero-buttons">
+    <a href="https://www.facebook.com/lei.lacra.azurin" class="btn-contact btn-facebook" target="_blank">
+      <i class="fab fa-facebook-f"></i> Facebook
+    </a>
+    <a href="https://www.onlinejobs.ph/jobseekers/info/2882637" class="btn-contact btn-onlinejobs" target="_blank">
+      <i class="fas fa-briefcase"></i> OnlineJobs.ph
+    </a>
+    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=leiramarieazurin@gmail.com" class="btn-contact btn-gmail" target="_blank">
+      <i class="fas fa-envelope"></i> Gmail
+    </a>
+    <a href="https://raw.githubusercontent.com/leiazurin/Portfolio/refs/heads/main/LeiraMarieAzurin_Resume.pdf" class="btn-contact btn-contact-secondary" download>
+      <i class="fas fa-file-download"></i> Download Resume
+    </a>
+  </div>
 </header>
+
 
 <!-- About Section -->
 <section id="about" class="container">
