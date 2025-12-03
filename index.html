@@ -36,35 +36,54 @@ header {
 }
 header h1 { font-size: 3rem; margin-bottom: 15px; opacity: 0; transform: translateY(-20px); animation: fadeInUp 1s forwards 0.3s; }
 header p { font-size: 1.3rem; margin-bottom: 30px; opacity: 0; transform: translateY(-20px); animation: fadeInUp 1s forwards 0.6s; }
-.btn-contact { display: inline-block; padding: 14px 35px; border-radius: 50px; font-weight: bold; transition: 0.3s; opacity: 0; transform: translateY(-20px); animation: fadeInUp 1s forwards 0.9s; }
-.btn-contact:hover { opacity:1; transform: translateY(0); }
-.btn-contact-primary { background-color: #fff; color: #2575fc; margin-right: 15px; }
-.btn-contact-primary:hover { background-color: #f1f1f1; }
+header .hero-buttons { display: flex; gap: 15px; flex-wrap: wrap; justify-content: center; opacity: 0; transform: translateY(-20px); animation: fadeInUp 1s forwards 0.9s; }
+.btn-contact { display: inline-flex; align-items: center; gap: 8px; padding: 14px 25px; border-radius: 50px; font-weight: bold; text-decoration: none; transition: all 0.3s; }
+.btn-contact i { margin-right: 6px; }
+.btn-contact:hover { transform: scale(1.05); box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
+.btn-facebook { background-color: #000; color: #fff; }
+.btn-facebook:hover { background-color: #1877f2; color: #fff; }
+.btn-onlinejobs { background-color: #000; color: #fff; }
+.btn-onlinejobs:hover { background-color: #f7a900; color: #fff; }
 .btn-contact-secondary { background-color: #6a11cb; color: #fff; }
-.btn-contact-secondary:hover { background-color: #2575fc; }
+.btn-contact-secondary:hover { background-color: #2575fc; color: #fff; }
 
 /* About Section */
-#about { display: flex; flex-wrap: wrap; align-items: center; gap: 40px; }
+#about { display: flex; flex-wrap: wrap; align-items: center; gap: 40px; position: relative; }
+#about::before { content: ''; position: absolute; left: -50px; top: 20px; width: 300px; height: 300px; background: radial-gradient(circle, rgba(106,17,203,0.15), transparent); z-index: -1; border-radius: 50%; }
 #about img { max-width: 300px; border-radius: 15px; box-shadow: 0px 10px 25px rgba(0,0,0,0.15); transition: transform 0.4s ease, box-shadow 0.4s ease; }
 #about img:hover { transform: scale(1.08) rotate(1deg); box-shadow: 0px 15px 35px rgba(0,0,0,0.2); }
 #about .text { flex: 1; }
+#about .text strong { color: #6a11cb; }
 .education { background-color: #e0f7fa; padding: 15px 20px; border-radius: 12px; margin-top: 15px; font-weight: bold; }
 
-/* Experience Cards */
-.experience-card { background-color: #fff; border-radius: 15px; padding: 25px; margin-bottom: 20px; box-shadow: 0px 5px 25px rgba(0,0,0,0.1); transition: transform 0.3s, box-shadow 0.3s; }
-.experience-card:hover { transform: translateY(-5px); box-shadow: 0px 10px 30px rgba(0,0,0,0.12); }
+/* Experience Timeline */
+.timeline { position: relative; margin: 40px 0; padding-left: 40px; }
+.timeline::before { content: ''; position: absolute; left: 18px; top: 0; width: 4px; height: 100%; background: #6a11cb; border-radius: 2px; }
+.timeline-item { position: relative; margin-bottom: 40px; padding-left: 40px; }
+.timeline-item:last-child { margin-bottom: 0; }
+.timeline-item::before { content: ''; position: absolute; left: -22px; top: 0; width: 15px; height: 15px; background-color: #6a11cb; border-radius: 50%; }
+.timeline-item h3 { margin-bottom: 5px; }
+.timeline-item p { margin-bottom: 5px; font-weight: bold; color: #333; }
+.timeline-item ul { margin-left: 20px; list-style: disc; }
 
 /* Skills Grid */
 .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; }
 .skill-card { background-color: #fff; padding: 20px; border-radius: 15px; text-align: center; box-shadow: 0px 5px 20px rgba(0,0,0,0.08); font-weight: 500; display: flex; flex-direction: column; align-items: center; gap: 10px; transition: transform 0.3s; }
-.skill-card i { font-size: 2rem; color: #6a11cb; animation: iconBounce 1s infinite alternate; transition: color 0.3s; }
+.skill-card i { font-size: 2rem; animation: iconBounce 1s infinite alternate; transition: color 0.3s; }
 .skill-card:hover { transform: translateY(-5px); }
-.skill-card:hover i { color: #2575fc; }
+.skill-card:nth-child(1):hover i { color: #2575fc; }
+.skill-card:nth-child(2):hover i { color: #ff5722; }
+.skill-card:nth-child(3):hover i { color: #4caf50; }
+.skill-card:nth-child(4):hover i { color: #9c27b0; }
+.skill-card:nth-child(5):hover i { color: #1877f2; }
+.skill-card:nth-child(6):hover i { color: #ffc107; }
+.skill-card:nth-child(7):hover i { color: #e91e63; }
+.skill-card:nth-child(8):hover i { color: #00bcd4; }
 
 /* Tools Grid */
 .tools-grid { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; }
 .tool { background-color: #fff; padding: 15px 25px; border-radius: 15px; box-shadow: 0px 5px 20px rgba(0,0,0,0.08); text-align: center; font-weight: bold; display: flex; align-items: center; gap: 10px; transition: transform 0.3s; }
-.tool i { font-size: 1.5rem; color: #2575fc; animation: iconBounce 1s infinite alternate; }
+.tool i { font-size: 1.5rem; animation: iconBounce 1s infinite alternate; }
 .tool:hover { transform: translateY(-5px); }
 
 /* Services Grid */
@@ -72,14 +91,15 @@ header p { font-size: 1.3rem; margin-bottom: 30px; opacity: 0; transform: transl
 .service-card { background-color: #fff; padding: 20px; border-radius: 15px; text-align: center; box-shadow: 0px 5px 20px rgba(0,0,0,0.08); transition: transform 0.3s, box-shadow 0.3s; }
 .service-card:hover { transform: translateY(-7px); box-shadow: 0px 12px 30px rgba(0,0,0,0.12); }
 
-/* Contact Form */
+/* Contact Section */
+#contact { text-align: center; }
 #contact form { max-width: 600px; margin: 0 auto; display: flex; flex-direction: column; gap: 15px; }
 #contact input, #contact textarea { padding: 14px; border-radius: 12px; border: 1px solid #ccc; width: 100%; font-size: 1rem; }
 #contact button { padding: 14px; border: none; border-radius: 50px; background-color: #2575fc; color: #fff; font-weight: bold; cursor: pointer; transition: 0.3s; }
 #contact button:hover { background-color: #6a11cb; }
 
 /* Footer */
-footer { background-color: #333; color: #fff; text-align: center; padding: 20px; }
+footer { background: linear-gradient(90deg,#6a11cb,#2575fc); color: #fff; text-align: center; padding: 20px; }
 
 /* Animations */
 @keyframes fadeInUp { 0% { opacity: 0; transform: translateY(-20px); } 100% { opacity: 1; transform: translateY(0); } }
@@ -108,6 +128,17 @@ footer { background-color: #333; color: #fff; text-align: center; padding: 20px;
 <header>
   <h1>Leira Marie Azurin</h1>
   <p>Virtual Assistant | Lead Generation & Data Entry Specialist</p>
+  <div class="hero-buttons">
+    <a href="https://www.facebook.com/lei.lacra.azurin" class="btn-contact btn-facebook" target="_blank">
+      <i class="fab fa-facebook-f"></i> Facebook
+    </a>
+    <a href="https://www.onlinejobs.ph/jobseekers/info/2882637" class="btn-contact btn-onlinejobs" target="_blank">
+      <i class="fas fa-briefcase"></i> OnlineJobs.ph
+    </a>
+    <a href="https://raw.githubusercontent.com/leiazurin/Portfolio/refs/heads/main/LeiraMarieAzurin_Resume.pdf" class="btn-contact btn-contact-secondary" download>
+      <i class="fas fa-file-download"></i> Download Resume
+    </a>
+  </div>
 </header>
 
 <!-- About Section -->
@@ -115,39 +146,41 @@ footer { background-color: #333; color: #fff; text-align: center; padding: 20px;
   <img src="https://raw.githubusercontent.com/leiazurin/Portfolio/refs/heads/main/75O8QiQ.jpg" alt="Leira Marie Azurin Photo">
   <div class="text">
     <h2>About Me</h2>
-    <p>Reliable and organized professional skilled in data encoding, online research, and client support, with proven experience in government administration and e-commerce operations. Ready to provide efficient virtual assistance for lead generation and data entry tasks.</p>
+    <p>Reliable and organized professional skilled in <strong>data encoding</strong>, <strong>online research</strong>, and <strong>client support</strong>, with proven experience in government administration and e-commerce operations. Ready to provide efficient virtual assistance for <strong>lead generation</strong> and <strong>data entry</strong> tasks.</p>
     <div class="education">AMA Computer College – Santiago Campus | Bachelor of Science in Computer Engineering</div>
     <p><strong>Email:</strong> leiramarieazurin@gmail.com | <strong>Phone:</strong> +639687598458 / +639651529976 | <strong>Location:</strong> Santiago City, Isabela, Philippines</p>
   </div>
 </section>
 
-<!-- Experience Section -->
+<!-- Experience Timeline Section -->
 <section id="experience" class="container">
   <h2>Professional Experience</h2>
-  <div class="experience-card">
-    <h3>Support Staff</h3>
-    <p><strong>4th Congressional District Office of Isabela | 7/2024 – 9/2025</strong></p>
-    <ul>
-      <li>Managed and encoded client data for educational and medical assistance programs.</li>
-      <li>Assisted constituents with inquiries, ensuring efficient and client-centered support.</li>
-      <li>Coordinated with teams for program implementation and event support.</li>
-    </ul>
-  </div>
-  <div class="experience-card">
-    <h3>Facebook Page Manager</h3>
-    <p><strong>K Gold Beauty Essentials Corp. | Remote | 11/2023 – 7/2024</strong></p>
-    <ul>
-      <li>Managed posts, engagement, product updates, and ad campaigns.</li>
-      <li>Responded to customer inquiries and tracked orders to delivery.</li>
-    </ul>
-  </div>
-  <div class="experience-card">
-    <h3>Non-Voice Chat Support Representative</h3>
-    <p><strong>K Gold Beauty Essentials Corp. | 3/2021 – 9/2021</strong></p>
-    <ul>
-      <li>Handled chat-based customer support and order processing.</li>
-      <li>Maintained accurate records using Google Sheets and ensured timely delivery.</li>
-    </ul>
+  <div class="timeline">
+    <div class="timeline-item">
+      <h3>Support Staff</h3>
+      <p>4th Congressional District Office of Isabela | 7/2024 – 9/2025</p>
+      <ul>
+        <li>Managed and encoded client data for educational and medical assistance programs.</li>
+        <li>Assisted constituents with inquiries, ensuring efficient and client-centered support.</li>
+        <li>Coordinated with teams for program implementation and event support.</li>
+      </ul>
+    </div>
+    <div class="timeline-item">
+      <h3>Facebook Page Manager</h3>
+      <p>K Gold Beauty Essentials Corp. | Remote | 11/2023 – 7/2024</p>
+      <ul>
+        <li>Managed posts, engagement, product updates, and ad campaigns.</li>
+        <li>Responded to customer inquiries and tracked orders to delivery.</li>
+      </ul>
+    </div>
+    <div class="timeline-item">
+      <h3>Non-Voice Chat Support Representative</h3>
+      <p>K Gold Beauty Essentials Corp. | 3/2021 – 9/2021</p>
+      <ul>
+        <li>Handled chat-based customer support and order processing.</li>
+        <li>Maintained accurate records using Google Sheets and ensured timely delivery.</li>
+      </ul>
+    </div>
   </div>
 </section>
 
@@ -206,26 +239,7 @@ footer { background-color: #333; color: #fff; text-align: center; padding: 20px;
       <i class="fas fa-file-download"></i> Download Resume
     </a>
   </div>
-  <form action="mailto:leiramarieazurin@gmail.com" method="POST" enctype="text/plain">
-    <input type="text" name="name" placeholder="Your Name" required>
-    <input type="email" name="email" placeholder="Your Email" required>
-    <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
-    <button type="submit">Send Message</button>
-  </form>
 </section>
-
-<style>
-/* Button Styles for Contact Section */
-.btn-contact { display: inline-flex; align-items: center; gap: 8px; padding: 14px 25px; border-radius: 50px; font-weight: bold; text-decoration: none; transition: 0.3s; }
-.btn-facebook { background-color: #000; color: #fff; }
-.btn-facebook:hover { background-color: #fff; color: #000; }
-.btn-onlinejobs { background-color: #000; color: #fff; }
-.btn-onlinejobs:hover { background-color: #fff; color: #000; }
-.btn-contact-secondary { background-color: #6a11cb; color: #fff; }
-.btn-contact-secondary:hover { background-color: #2575fc; color: #fff; }
-</style>
-
-
 
 <footer>
   &copy; 2025 Leira Marie Azurin | Virtual Assistant Portfolio
