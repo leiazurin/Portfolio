@@ -4,12 +4,16 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Leira Marie Azurin | Virtual Assistant Portfolio</title>
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<meta name="description" content="Leira Marie Azurin | Virtual Assistant skilled in data entry, lead generation, and client support. Available for remote work.">
+<meta name="keywords" content="Virtual Assistant, Data Entry, Lead Generation, Customer Support, Remote Jobs">
+<meta name="author" content="Leira Marie Azurin">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Montserrat:wght@100;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <style>
 /* Global Styles */
 * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Roboto', sans-serif; scroll-behavior: smooth; }
-body { line-height: 1.6; color: #333; background-color: #f9f9f9; }
+body { line-height: 1.6; color: #333; background-color: #f9f9f9; transition: background 0.3s, color 0.3s; }
+body.dark-mode { background-color: #121212; color: #e0e0e0; }
 a { text-decoration: none; color: inherit; }
 section { padding: 80px 20px; opacity: 0; transform: translateY(30px); transition: all 0.8s ease; }
 section.visible { opacity: 1; transform: translateY(0); }
@@ -32,68 +36,53 @@ header {
   align-items: center;
   text-align: center;
   color: #fff;
-  padding: 60px 20px 40px 20px; /* more breathing space on top */
+  padding: 60px 20px 40px 20px;
   background: linear-gradient(to right, rgba(106,17,203,0.7), rgba(37,117,252,0.7)),
               url('https://raw.githubusercontent.com/leiazurin/Portfolio/refs/heads/main/75O8Qia.jpg') no-repeat center center;
   background-size: cover;
 }
 
-header h1 {
-  font-size: 3.5rem;
-  line-height: 1.2;
-  margin-bottom: 20px; /* extra space below heading */
-  opacity: 0;
-  transform: translateY(-20px);
-  animation: fadeInUp 1s forwards 0.3s;
-}
-
-header .hero-subtext {
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 100;
-  font-size: 1.8rem;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  margin-bottom: 15px; /* small gap to niche line */
-  opacity: 0;
-  transform: translateY(-10px);
-  animation: fadeInUp 1s forwards 0.5s;
-}
-
-header p:nth-of-type(2) {  /* niche line */
-  font-size: 1.5rem;
-  font-weight: 500;
-  color: #fff;
-  margin-bottom: 35px;  /* larger gap before buttons */
-  text-shadow: 1px 1px 6px rgba(0,0,0,0.4);
-  opacity: 0;
-  transform: translateY(-10px);
-  animation: fadeInUp 1s forwards 0.7s;
-}
-
-header .hero-buttons {
-  display: flex;
-  gap: 15px;
-  flex-wrap: wrap;
+/* HIRE ME NOW BUTTON */
+.hire-btn {
+  display: inline-flex;
+  align-items: center;
   justify-content: center;
-  opacity: 0;
-  transform: translateY(-10px);
-  animation: fadeInUp 1s forwards 0.9s;
+  gap: 8px;
+  padding: 18px 30px;
+  border-radius: 50px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  background-color: #ff4081;
+  color: #fff;
+  text-decoration: none;
+  margin: 20px 0; /* space below hero text */
+  animation: bounce 1.5s infinite;
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
-header .hero-buttons a {
-  min-width: 180px;
-  padding: 14px 25px;
-  font-size: 1rem;
+.hire-btn:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+  background-color: #e73370;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
 }
 
 
-/* Responsive */
-@media(max-width:768px){
-  header h1 { font-size: 2.5rem; }
-  header p { font-size: 1.2rem; }
-  .hero-buttons a { width: 100%; max-width: 250px; justify-content: center; }
-}
 
+header h1 { font-size: 3.5rem; line-height: 1.2; margin-bottom: 20px; opacity: 0; transform: translateY(-20px); animation: fadeInUp 1s forwards 0.3s; }
+header .hero-subtext { font-family: 'Montserrat', sans-serif; font-weight: 100; font-size: 1.8rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 15px; opacity: 0; transform: translateY(-10px); animation: fadeInUp 1s forwards 0.5s; }
+header p:nth-of-type(2) { font-size: 1.5rem; font-weight: 500; color: #fff; margin-bottom: 35px; text-shadow: 1px 1px 6px rgba(0,0,0,0.4); opacity: 0; transform: translateY(-10px); animation: fadeInUp 1s forwards 0.7s; }
+header .hero-buttons { display: flex; gap: 15px; flex-wrap: wrap; justify-content: center; opacity: 0; transform: translateY(-10px); animation: fadeInUp 1s forwards 0.9s; }
+header .hero-buttons a { min-width: 180px; padding: 14px 25px; font-size: 1rem; transition: transform 0.3s, box-shadow 0.3s; }
+header .hero-buttons a:hover { transform: translateY(-3px) scale(1.05); box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
+
+/* Dark Mode Toggle */
+#darkModeToggle { position: fixed; top: 20px; right: 20px; padding: 10px; border: none; border-radius: 50%; cursor: pointer; font-size: 1.2rem; background-color: #6a11cb; color: #fff; z-index: 1000; transition: background 0.3s; }
+#darkModeToggle:hover { background-color: #2575fc; }
 
 /* Buttons */
 .btn-contact { display: inline-flex; align-items: center; gap: 8px; padding: 14px 25px; border-radius: 50px; font-weight: bold; text-decoration: none; transition: all 0.3s; }
@@ -109,53 +98,56 @@ header .hero-buttons a {
 .btn-contact-secondary:hover { background-color: #2575fc; color: #fff; }
 
 /* About Section */
-#about { display: flex; flex-wrap: wrap; align-items: center; gap: 40px; position: relative; }
+#about { display: flex; flex-wrap: wrap; align-items: center; gap: 40px; position: relative; background-color: #fff; border-radius: 15px; padding: 60px 20px; margin-bottom: 40px; }
+body.dark-mode #about { background-color: #1e1e1e; }
 #about::before { content: ''; position: absolute; left: -50px; top: 20px; width: 300px; height: 300px; background: radial-gradient(circle, rgba(106,17,203,0.15), transparent); z-index: -1; border-radius: 50%; }
 #about img { max-width: 300px; border-radius: 15px; box-shadow: 0px 10px 25px rgba(0,0,0,0.15); transition: transform 0.4s ease, box-shadow 0.4s ease; }
 #about img:hover { transform: scale(1.08) rotate(1deg); box-shadow: 0px 15px 35px rgba(0,0,0,0.2); }
 #about .text { flex: 1; }
 #about .text strong { color: #6a11cb; }
+body.dark-mode #about .text strong { color: #ff9800; }
 .education { background-color: #e0f7fa; padding: 15px 20px; border-radius: 12px; margin-top: 15px; font-weight: bold; }
+body.dark-mode .education { background-color: #333; }
 
 /* Timeline */
 .timeline { position: relative; margin: 40px 0; padding-left: 40px; }
 .timeline::before { content: ''; position: absolute; left: 18px; top: 0; width: 4px; height: 100%; background: #6a11cb; border-radius: 2px; }
-.timeline-item { position: relative; margin-bottom: 40px; padding-left: 40px; }
+body.dark-mode .timeline::before { background: #ff9800; }
+.timeline-item { position: relative; margin-bottom: 40px; padding-left: 40px; transition: transform 0.3s, box-shadow 0.3s; }
+.timeline-item:hover { transform: translateY(-3px); box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
 .timeline-item:last-child { margin-bottom: 0; }
 .timeline-item::before { content: ''; position: absolute; left: -22px; top: 0; width: 15px; height: 15px; background-color: #6a11cb; border-radius: 50%; }
+body.dark-mode .timeline-item::before { background-color: #ff9800; }
 .timeline-item h3 { margin-bottom: 5px; }
 .timeline-item p { margin-bottom: 5px; font-weight: bold; color: #333; }
-.timeline-item ul { margin-left: 20px; list-style: disc; }
+body.dark-mode .timeline-item p { color: #e0e0e0; }
+.timeline-item ul { margin-left: 20px; }
 
 /* Skills */
 .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; }
 .skill-card { background-color: #fff; padding: 20px; border-radius: 15px; text-align: center; box-shadow: 0px 5px 20px rgba(0,0,0,0.08); font-weight: 500; display: flex; flex-direction: column; align-items: center; gap: 10px; transition: transform 0.3s; }
+body.dark-mode .skill-card { background-color: #1e1e1e; }
 .skill-card i { font-size: 2rem; animation: iconBounce 1s infinite alternate; transition: color 0.3s; }
 .skill-card:hover { transform: translateY(-5px); }
-.skill-card:nth-child(1):hover i { color: #2575fc; }
-.skill-card:nth-child(2):hover i { color: #ff5722; }
-.skill-card:nth-child(3):hover i { color: #4caf50; }
-.skill-card:nth-child(4):hover i { color: #9c27b0; }
-.skill-card:nth-child(5):hover i { color: #1877f2; }
-.skill-card:nth-child(6):hover i { color: #ffc107; }
-.skill-card:nth-child(7):hover i { color: #e91e63; }
-.skill-card:nth-child(8):hover i { color: #00bcd4; }
 
 /* Tools */
 .tools-grid { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; }
 .tool { background-color: #fff; padding: 15px 25px; border-radius: 15px; box-shadow: 0px 5px 20px rgba(0,0,0,0.08); text-align: center; font-weight: bold; display: flex; align-items: center; gap: 10px; transition: transform 0.3s; }
+body.dark-mode .tool { background-color: #1e1e1e; }
 .tool i { font-size: 1.5rem; animation: iconBounce 1s infinite alternate; }
 .tool:hover { transform: translateY(-5px); }
 
-/* Services */
+/* Services / Testimonials / Portfolio */
 .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
 .service-card { background-color: #fff; padding: 20px; border-radius: 15px; text-align: center; box-shadow: 0px 5px 20px rgba(0,0,0,0.08); transition: transform 0.3s, box-shadow 0.3s; }
+body.dark-mode .service-card { background-color: #1e1e1e; }
 .service-card:hover { transform: translateY(-7px); box-shadow: 0px 12px 30px rgba(0,0,0,0.12); }
 
 /* Contact */
 #contact { text-align: center; }
 #contact form { max-width: 600px; margin: 0 auto; display: flex; flex-direction: column; gap: 15px; }
 #contact input, #contact textarea { padding: 14px; border-radius: 12px; border: 1px solid #ccc; width: 100%; font-size: 1rem; }
+body.dark-mode #contact input, body.dark-mode #contact textarea { background-color: #1e1e1e; border-color: #555; color: #e0e0e0; }
 #contact button { padding: 14px; border: none; border-radius: 50px; background-color: #2575fc; color: #fff; font-weight: bold; cursor: pointer; transition: 0.3s; }
 #contact button:hover { background-color: #6a11cb; }
 
@@ -166,29 +158,27 @@ footer { background: linear-gradient(90deg,#6a11cb,#2575fc); color: #fff; text-a
 @keyframes fadeInUp { 0% { opacity: 0; transform: translateY(-20px); } 100% { opacity: 1; transform: translateY(0); } }
 @keyframes iconBounce { 0% { transform: translateY(0); } 100% { transform: translateY(-8px); } }
 
+/* Back to Top Button */
+#backToTop { position: fixed; bottom: 40px; right: 40px; background: #6a11cb; color: #fff; padding: 12px; border-radius: 50%; font-size: 1.2rem; display: none; z-index: 1000; transition: 0.3s; cursor:pointer; }
+#backToTop:hover { background: #2575fc; }
+
 /* Responsive */
-@media(max-width:1024px){ .side-nav { left:10px; gap:15px; } }
 @media(max-width:768px){
-    body { flex-direction: column; }
-    .side-nav { position: static; flex-direction: row; justify-content: center; transform: none; margin-bottom:20px; }
-    #about { flex-direction: column; text-align: center; }
-    .skill-card, .tool { justify-content: center; }
-    header { padding:100px 20px 60px 20px; }
-    div[style*="margin-left:80px"] { margin-left:0; }
-    .timeline { padding-left:20px; }
-    .timeline-item { padding-left:25px; }
-    .timeline-item::before { left:-12px; width:12px; height:12px; }
-    .timeline::before { left:12px; width:3px; }
-    header h1 { font-size:2rem; }
-    header p { font-size:1rem; }
-    .hero-buttons a { width:100%; max-width:250px; justify-content:center; }
-    .services-grid { grid-template-columns: 1fr; }
-    .skills-grid { grid-template-columns: 1fr; }
-    .tools-grid { flex-direction: column; align-items: center; }
+  header h1 { font-size: 2.5rem; }
+  header p { font-size: 1.2rem; }
+  .hero-buttons a { width: 100%; max-width: 250px; justify-content: center; }
+  .side-nav { position: static; flex-direction: row; justify-content: center; transform: none; margin-bottom:20px; }
+  #about { flex-direction: column; text-align: center; }
+  .skill-card, .tool { justify-content: center; }
+  .services-grid, .skills-grid { grid-template-columns: 1fr; }
+  .tools-grid { flex-direction: column; align-items: center; }
 }
 </style>
 </head>
 <body>
+
+<!-- Dark Mode Toggle -->
+<button id="darkModeToggle">🌙</button>
 
 <!-- Side Navigation -->
 <div class="side-nav">
@@ -197,6 +187,8 @@ footer { background: linear-gradient(90deg,#6a11cb,#2575fc); color: #fff; text-a
   <a href="#skills"><i class="fas fa-lightbulb"></i></a>
   <a href="#tools"><i class="fas fa-tools"></i></a>
   <a href="#services"><i class="fas fa-cogs"></i></a>
+  <a href="#portfolio"><i class="fas fa-folder-open"></i></a>
+  <a href="#testimonials"><i class="fas fa-comments"></i></a>
   <a href="#contact"><i class="fas fa-envelope"></i></a>
 </div>
 
@@ -204,29 +196,27 @@ footer { background: linear-gradient(90deg,#6a11cb,#2575fc); color: #fff; text-a
 
 <!-- Hero Section -->
 <header>
-  <h1>I'm Leira Marie Azurin, at your service!</h1>
+  <h1>I'm Leira Marie Azurin</h1>
   <p class="hero-subtext">A RELIABLE PARTNER FOR YOUR ONLINE BUSINESS</p>
-  <p>Virtual Assistant | Lead Generation & Data Entry Specialist</p>
+  <p>Virtual Assistant | Lead Generation | Data Entry Specialist</p>
+
+  <!-- HIRE ME NOW BUTTON CENTERED -->
+  <a href="https://mail.google.com/mail/?view=cm&fs=1&to=leiramarieazurin@gmail.com&su=Inquiry%20from%20Portfolio&body=Hello%20Leira%2C" 
+     class="btn-contact hire-btn" target="_blank">
+     <i class="fas fa-envelope"></i> Hire Me Now
+  </a>
+
+  <!-- Existing Hero Buttons -->
   <div class="hero-buttons">
-    <a href="https://www.facebook.com/lei.lacra.azurin" class="btn-contact btn-facebook" target="_blank">
-      <i class="fab fa-facebook-f"></i> Facebook
-    </a>
-    <a href="https://www.onlinejobs.ph/jobseekers/info/2882637" class="btn-contact btn-onlinejobs" target="_blank">
-      <i class="fas fa-briefcase"></i> OnlineJobs.ph
-    </a>
-    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=leiramarieazurin@gmail.com" class="btn-contact btn-gmail" target="_blank">
-      <i class="fas fa-envelope"></i> Gmail
-    </a>
-    <a href="https://raw.githubusercontent.com/leiazurin/Portfolio/refs/heads/main/LeiraMarieAzurin_Resume.pdf" class="btn-contact btn-contact-secondary" download>
-      <i class="fas fa-file-download"></i> Download Resume
-    </a>
+    <a href="https://www.facebook.com/lei.lacra.azurin" class="btn-contact btn-facebook" target="_blank"><i class="fab fa-facebook-f"></i> Facebook</a>
+    <a href="https://www.onlinejobs.ph/jobseekers/info/2882637" class="btn-contact btn-onlinejobs" target="_blank"><i class="fas fa-briefcase"></i> OnlineJobs.ph</a>
+    <a href="https://raw.githubusercontent.com/leiazurin/Portfolio/refs/heads/main/LeiraMarieAzurin_Resume.pdf" class="btn-contact btn-contact-secondary" download><i class="fas fa-file-download"></i> Download Resume</a>
   </div>
 </header>
 
-
 <!-- About Section -->
 <section id="about" class="container">
-  <img src="https://raw.githubusercontent.com/leiazurin/Portfolio/refs/heads/main/75O8QiQ.jpg" alt="Leira Marie Azurin Photo">
+  <img src="https://raw.githubusercontent.com/leiazurin/Portfolio/refs/heads/main/75O8QiQ.jpg" alt="Leira Marie Azurin Photo" loading="lazy">
   <div class="text">
     <h2>About Me</h2>
     <p>Reliable and organized professional skilled in <strong>data encoding</strong>, <strong>online research</strong>, and <strong>client support</strong>, with proven experience in government administration and e-commerce operations. Ready to provide efficient virtual assistance for <strong>lead generation</strong> and <strong>data entry</strong> tasks.</p>
@@ -312,25 +302,19 @@ footer { background: linear-gradient(90deg,#6a11cb,#2575fc); color: #fff; text-a
 <section id="contact" class="container">
   <h2>Contact Me</h2>
   <div style="display:flex; gap:15px; flex-wrap:wrap; justify-content:center; margin-bottom:20px;">
-    <a href="https://www.facebook.com/lei.lacra.azurin" class="btn-contact btn-facebook" target="_blank">
-      <i class="fab fa-facebook-f"></i> Facebook
-    </a>
-    <a href="https://www.onlinejobs.ph/jobseekers/info/2882637" class="btn-contact btn-onlinejobs" target="_blank">
-      <i class="fas fa-briefcase"></i> OnlineJobs.ph
-    </a>
-    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=leiramarieazurin@gmail.com" class="btn-contact btn-gmail" target="_blank">
-      <i class="fas fa-envelope"></i> Gmail
-    </a>
-    <a href="https://raw.githubusercontent.com/leiazurin/Portfolio/refs/heads/main/LeiraMarieAzurin_Resume.pdf" class="btn-contact btn-contact-secondary" download>
-      <i class="fas fa-file-download"></i> Download Resume
-    </a>
+    <a href="https://www.facebook.com/lei.lacra.azurin" class="btn-contact btn-facebook" target="_blank"><i class="fab fa-facebook-f"></i> Facebook</a>
+    <a href="https://www.onlinejobs.ph/jobseekers/info/2882637" class="btn-contact btn-onlinejobs" target="_blank"><i class="fas fa-briefcase"></i> OnlineJobs.ph</a>
+    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=leiramarieazurin@gmail.com" class="btn-contact btn-gmail" target="_blank"><i class="fas fa-envelope"></i> Gmail</a>
+    <a href="https://raw.githubusercontent.com/leiazurin/Portfolio/refs/heads/main/LeiraMarieAzurin_Resume.pdf" class="btn-contact btn-contact-secondary" download><i class="fas fa-file-download"></i> Download Resume</a>
   </div>
 </section>
-
 
 <footer>
   &copy; 2025 Leira Marie Azurin | Virtual Assistant Portfolio
 </footer>
+
+<!-- Back to Top Button -->
+<a href="#" id="backToTop"><i class="fas fa-arrow-up"></i></a>
 
 <script>
 // Scroll Animation
@@ -361,6 +345,23 @@ window.addEventListener('scroll', () => {
   });
   navLinks.forEach(link => link.classList.remove('active'));
   document.querySelector('.side-nav a[href="#'+current+'"]')?.classList.add('active');
+});
+
+// Back to Top
+const backToTop = document.getElementById('backToTop');
+window.addEventListener('scroll', () => {
+  if(window.scrollY > 300) backToTop.style.display = 'block';
+  else backToTop.style.display = 'none';
+});
+backToTop.addEventListener('click', e => {
+  e.preventDefault();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+// Dark Mode Toggle
+const toggle = document.getElementById('darkModeToggle');
+toggle.addEventListener('click', () => {
+  document.body.classList.toggle('dark-mode');
 });
 </script>
 
