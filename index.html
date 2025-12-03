@@ -37,6 +37,8 @@ header {
 header h1 { font-size: 3rem; margin-bottom: 15px; opacity: 0; transform: translateY(-20px); animation: fadeInUp 1s forwards 0.3s; }
 header p { font-size: 1.3rem; margin-bottom: 30px; opacity: 0; transform: translateY(-20px); animation: fadeInUp 1s forwards 0.6s; }
 header .hero-buttons { display: flex; gap: 15px; flex-wrap: wrap; justify-content: center; opacity: 0; transform: translateY(-20px); animation: fadeInUp 1s forwards 0.9s; }
+
+/* Buttons */
 .btn-contact { display: inline-flex; align-items: center; gap: 8px; padding: 14px 25px; border-radius: 50px; font-weight: bold; text-decoration: none; transition: all 0.3s; }
 .btn-contact i { margin-right: 6px; }
 .btn-contact:hover { transform: scale(1.05); box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
@@ -56,7 +58,7 @@ header .hero-buttons { display: flex; gap: 15px; flex-wrap: wrap; justify-conten
 #about .text strong { color: #6a11cb; }
 .education { background-color: #e0f7fa; padding: 15px 20px; border-radius: 12px; margin-top: 15px; font-weight: bold; }
 
-/* Experience Timeline */
+/* Timeline */
 .timeline { position: relative; margin: 40px 0; padding-left: 40px; }
 .timeline::before { content: ''; position: absolute; left: 18px; top: 0; width: 4px; height: 100%; background: #6a11cb; border-radius: 2px; }
 .timeline-item { position: relative; margin-bottom: 40px; padding-left: 40px; }
@@ -66,7 +68,7 @@ header .hero-buttons { display: flex; gap: 15px; flex-wrap: wrap; justify-conten
 .timeline-item p { margin-bottom: 5px; font-weight: bold; color: #333; }
 .timeline-item ul { margin-left: 20px; list-style: disc; }
 
-/* Skills Grid */
+/* Skills */
 .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; }
 .skill-card { background-color: #fff; padding: 20px; border-radius: 15px; text-align: center; box-shadow: 0px 5px 20px rgba(0,0,0,0.08); font-weight: 500; display: flex; flex-direction: column; align-items: center; gap: 10px; transition: transform 0.3s; }
 .skill-card i { font-size: 2rem; animation: iconBounce 1s infinite alternate; transition: color 0.3s; }
@@ -80,18 +82,18 @@ header .hero-buttons { display: flex; gap: 15px; flex-wrap: wrap; justify-conten
 .skill-card:nth-child(7):hover i { color: #e91e63; }
 .skill-card:nth-child(8):hover i { color: #00bcd4; }
 
-/* Tools Grid */
+/* Tools */
 .tools-grid { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; }
 .tool { background-color: #fff; padding: 15px 25px; border-radius: 15px; box-shadow: 0px 5px 20px rgba(0,0,0,0.08); text-align: center; font-weight: bold; display: flex; align-items: center; gap: 10px; transition: transform 0.3s; }
 .tool i { font-size: 1.5rem; animation: iconBounce 1s infinite alternate; }
 .tool:hover { transform: translateY(-5px); }
 
-/* Services Grid */
+/* Services */
 .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
 .service-card { background-color: #fff; padding: 20px; border-radius: 15px; text-align: center; box-shadow: 0px 5px 20px rgba(0,0,0,0.08); transition: transform 0.3s, box-shadow 0.3s; }
 .service-card:hover { transform: translateY(-7px); box-shadow: 0px 12px 30px rgba(0,0,0,0.12); }
 
-/* Contact Section */
+/* Contact */
 #contact { text-align: center; }
 #contact form { max-width: 600px; margin: 0 auto; display: flex; flex-direction: column; gap: 15px; }
 #contact input, #contact textarea { padding: 14px; border-radius: 12px; border: 1px solid #ccc; width: 100%; font-size: 1rem; }
@@ -106,8 +108,25 @@ footer { background: linear-gradient(90deg,#6a11cb,#2575fc); color: #fff; text-a
 @keyframes iconBounce { 0% { transform: translateY(0); } 100% { transform: translateY(-8px); } }
 
 /* Responsive */
-@media(max-width: 1024px){ .side-nav { left: 10px; gap: 15px; } }
-@media(max-width: 768px){ body { flex-direction: column; } .side-nav { position: static; flex-direction: row; justify-content: center; transform: none; margin-bottom: 20px; } #about { flex-direction: column; text-align: center; } .skill-card, .tool { justify-content: center; } header { padding: 100px 20px 60px 20px; } }
+@media(max-width:1024px){ .side-nav { left:10px; gap:15px; } }
+@media(max-width:768px){
+    body { flex-direction: column; }
+    .side-nav { position: static; flex-direction: row; justify-content: center; transform: none; margin-bottom:20px; }
+    #about { flex-direction: column; text-align: center; }
+    .skill-card, .tool { justify-content: center; }
+    header { padding:100px 20px 60px 20px; }
+    div[style*="margin-left:80px"] { margin-left:0; }
+    .timeline { padding-left:20px; }
+    .timeline-item { padding-left:25px; }
+    .timeline-item::before { left:-12px; width:12px; height:12px; }
+    .timeline::before { left:12px; width:3px; }
+    header h1 { font-size:2rem; }
+    header p { font-size:1rem; }
+    .hero-buttons a { width:100%; max-width:250px; justify-content:center; }
+    .services-grid { grid-template-columns: 1fr; }
+    .skills-grid { grid-template-columns: 1fr; }
+    .tools-grid { flex-direction: column; align-items: center; }
+}
 </style>
 </head>
 <body>
@@ -152,7 +171,7 @@ footer { background: linear-gradient(90deg,#6a11cb,#2575fc); color: #fff; text-a
   </div>
 </section>
 
-<!-- Experience Timeline Section -->
+<!-- Experience Timeline -->
 <section id="experience" class="container">
   <h2>Professional Experience</h2>
   <div class="timeline">
