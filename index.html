@@ -3,305 +3,459 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Leira Marie Azurin | Virtual Assistant Portfolio</title>
-<meta name="description" content="Leira Marie Azurin | Virtual Assistant skilled in data entry, lead generation, and client support. Available for remote work.">
-<meta name="keywords" content="Virtual Assistant, Data Entry, Lead Generation, Customer Support, Remote Jobs">
-<meta name="author" content="Leira Marie Azurin">
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Montserrat:wght@100;700&display=swap" rel="stylesheet">
+<title>Leira Marie Azurin | Portfolio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
 <style>
-/* Global Styles */
-* { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Roboto', sans-serif; scroll-behavior: smooth; }
-body { line-height: 1.6; color: #333; background-color: #f9f9f9; transition: background 0.3s, color 0.3s; }
-body.dark-mode { background-color: #121212; color: #e0e0e0; }
-a { text-decoration: none; color: inherit; }
-section { padding: 80px 20px; opacity: 0; transform: translateY(30px); transition: all 0.8s ease; }
-section.visible { opacity: 1; transform: translateY(0); }
-h1,h2,h3 { margin-bottom: 20px; }
-.container { max-width: 1000px; margin: 0 auto; }
 
-/* Side Navigation */
-.side-nav { position: fixed; top: 50%; left: 20px; transform: translateY(-50%); display: flex; flex-direction: column; gap: 20px; z-index: 1000; }
-.side-nav a { display: flex; align-items: center; justify-content: center; width: 50px; height: 50px; background-color: #2575fc; color: #fff; border-radius: 50%; font-size: 1.2rem; transition: 0.3s; }
-.side-nav a.active, .side-nav a:hover { background-color: #6a11cb; }
+/* ------ PAGE BASE -------- */
+html { scroll-behavior:smooth; }
 
-/* Global Styles */
-* { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Roboto', sans-serif; scroll-behavior: smooth; }
-body { line-height: 1.6; color: #111; background-color: #fff; transition: background 0.3s, color 0.3s; }
-body.dark-mode { background-color: #111; color: #f5f5f5; }
-a { text-decoration: none; color: inherit; }
-section { padding: 80px 20px; opacity: 0; transform: translateY(30px); transition: all 0.8s ease; }
-section.visible { opacity: 1; transform: translateY(0); }
-h1,h2,h3 { margin-bottom: 20px; }
-.container { max-width: 1000px; margin: 0 auto; }
+body {
+  margin:0;
+  padding:0;
+  font-family:'Roboto', sans-serif;
+  color:#1a1a1a;
+  background:#fffef4; /* default background for the rest of the page */
+}
 
-/* Side Navigation */
-.side-nav { position: fixed; top: 50%; left: 20px; transform: translateY(-50%); display: flex; flex-direction: column; gap: 20px; z-index: 1000; }
-.side-nav a { display: flex; align-items: center; justify-content: center; width: 50px; height: 50px; background-color: #111; color: #ffc107; border-radius: 50%; font-size: 1.2rem; transition: 0.3s; }
-.side-nav a.active, .side-nav a:hover { background-color: #ffc107; color: #111; }
+/* ------- Fixed Premium Footer ------- */
+footer {
+  text-align:center;
+  padding:25px 10px;
+  margin-top:80px;
+  background:#111;
+  color:#FFD600;
+  font-weight:600;
+  font-size:1.1rem;
+  box-shadow:0 -4px 18px rgba(0,0,0,0.15);
+}
 
-/* Hero Section */
-header {
-  position: relative;
-  width: 100%;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  color: #fff;
-  padding: 60px 20px 40px 20px;
-  background: linear-gradient(to right, rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
-              url('https://raw.githubusercontent.com/leiazurin/Portfolio/refs/heads/main/75O8Qia.jpg') no-repeat center center;
+/* Heading */
+h2 {
+  text-align:center;
+  font-size:2.6rem;
+  margin-bottom:45px;
+  font-weight:900;
+  color:#1a1a1a;
+}
+
+/* ------ HERO SECTION -------- */
+.hero-wrapper {
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:120px 40px;
+  gap:90px;
+  flex-wrap:wrap;
+  position:relative;
+
+  /* ⭐ Background only in hero */
+  background: url("https://raw.githubusercontent.com/leiazurin/Portfolio/refs/heads/main/75O8QiaA.jpg") 
+      no-repeat center center;
   background-size: cover;
-  transition: all 0.3s;
 }
 
-/* Hero Buttons */
-.hire-btn {
-  display: inline-flex;
-  align-items: center;
+.hero-wrapper::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(2px);
+  z-index: -1;
+}
+
+/* Soft glowing background circle */
+.hero-wrapper::after {
+  content:"";
+  position:absolute;
+  width:420px;
+  height:420px;
+  background:radial-gradient(circle, rgba(255,214,0,0.35), rgba(255,214,0,0));
+  filter:blur(90px);
+  top:-50px;
+  left:-60px;
+  z-index:-1;
+}
+
+.profile-container {
+  background:#fff8c7;
+  width:380px;
+  padding:55px 35px;
+  border-radius:20px;
+  text-align:center;
+  box-shadow:0 12px 50px rgba(0,0,0,0.12);
+  animation: fadeSlideUp .9s ease-out forwards;
+  opacity:0;
+  transform:translateY(40px);
+}
+
+/* Floating glowing circle */
+.profile-circle {
+  width:260px;
+  height:260px;
+  background:#FFD600;
+  border-radius:50%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  margin:0 auto 28px auto;
+  animation: float 4.5s ease-in-out infinite, pulse 3s ease-in-out infinite;
+  transition:0.3s ease-out;
+}
+
+.profile-circle:hover {
+  transform:scale(1.05);
+  box-shadow:0 0 55px rgba(255,214,0,1);
+}
+
+.profile-circle img {
+  width:210px;
+  height:210px;
+  border-radius:50%;
+  object-fit:cover;
+  opacity:0;
+  transform:scale(0.75);
+  animation: popIn 1s ease-out forwards .4s;
+  transition:0.3s ease-out;
+}
+
+.profile-circle:hover img {
+  transform:scale(1.09);
+}
+
+.profile-container h2 {
+  font-size:2.35rem;
+  margin:12px 0 4px;
+  font-weight:900;
+}
+
+.yellow-line {
+  width:60px;
+  height:4px;
+  background:#FFD600;
+  margin:14px auto;
+  border-radius:4px;
+}
+
+/* Intro text */
+.intro-text {
+  max-width:600px;
+}
+
+.intro-text h1 {
+  font-size:4.4rem;
+  font-weight:900;
+  opacity:0;
+  transform:translateX(-50px) scale(0.95);
+  animation: slideInTitle 0.9s ease-out forwards;
+}
+
+.intro-text p {
+  font-size:1.3rem;
+  opacity:0;
+  transform:translateX(-40px);
+  animation: fadeLeft 1s ease-out forwards 0.4s;
+  line-height:1.6;
+  margin-bottom:30px;
+}
+
+.intro-text a {
+  opacity:0;
+  transform:translateX(-40px);
+  animation: fadeLeft 1s ease-out forwards 0.55s;
+}
+
+.btn {
+  padding:15px 32px;
+  border-radius:35px;
+  font-weight:bold;
+  text-decoration:none;
+  display:inline-block;
+  margin-right:14px;
+  transition:0.3s;
+}
+
+.btn-yellow { background:#FFD600; color:#111; border:2px solid #FFD600; }
+.btn-yellow:hover { background:#e2c000; }
+
+.btn-hire { background:#111; color:#FFD600; border:2px solid #111; }
+.btn-hire:hover { background:#FFD600; color:#111; }
+
+/* Hero section social icons */
+.hero-wrapper .social-links {
+  display: flex;
   justify-content: center;
-  gap: 8px;
-  padding: 18px 30px;
-  border-radius: 50px;
-  font-size: 1.2rem;
-  font-weight: bold;
-  background-color: #ffc107;
-  color: #111;
-  text-decoration: none;
-  margin: 20px 0;
-  animation: bounce 1.5s infinite;
-  transition: transform 0.3s, box-shadow 0.3s;
+  gap: 20px; /* spacing between icons */
+  margin-top: 15px; /* spacing from text above */
 }
-.hire-btn:hover {
-  transform: translateY(-3px) scale(1.05);
-  box-shadow: 0 8px 25px rgba(0,0,0,0.2);
-  background-color: #e6b800;
+
+.hero-wrapper .social-links a i {
+  font-size: 1.6rem; /* slightly bigger icons */
+  transition: 0.3s;
 }
-@keyframes bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
 
-header h1 { font-size: 3.5rem; line-height: 1.2; margin-bottom: 20px; opacity: 0; transform: translateY(-20px); animation: fadeInUp 1s forwards 0.3s; }
-header .hero-subtext { font-family: 'Montserrat', sans-serif; font-weight: 100; font-size: 1.8rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 15px; opacity: 0; transform: translateY(-10px); animation: fadeInUp 1s forwards 0.5s; }
-header p:nth-of-type(2) { font-size: 1.5rem; font-weight: 500; color: #fff; margin-bottom: 35px; text-shadow: 1px 1px 6px rgba(0,0,0,0.4); opacity: 0; transform: translateY(-10px); animation: fadeInUp 1s forwards 0.7s; }
-header .hero-buttons { display: flex; gap: 15px; flex-wrap: wrap; justify-content: center; opacity: 0; transform: translateY(-10px); animation: fadeInUp 1s forwards 0.9s; }
-header .hero-buttons a { min-width: 180px; padding: 14px 25px; font-size: 1rem; transition: transform 0.3s, box-shadow 0.3s; }
-header .hero-buttons a:hover { transform: translateY(-3px) scale(1.05); box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
+.hero-wrapper .social-links a:hover i {
+  transform: scale(1.2);
+}
 
-/* Dark Mode Toggle */
-#darkModeToggle { position: fixed; top: 20px; right: 20px; padding: 10px; border: none; border-radius: 50%; cursor: pointer; font-size: 1.2rem; background-color: #111; color: #ffc107; z-index: 1000; transition: background 0.3s; }
-#darkModeToggle:hover { background-color: #ffc107; color: #111; }
 
-/* Buttons */
-.btn-contact { display: inline-flex; align-items: center; gap: 8px; padding: 14px 25px; border-radius: 50px; font-weight: bold; text-decoration: none; transition: all 0.3s; }
-.btn-contact i { margin-right: 6px; }
-.btn-contact:hover { transform: scale(1.05); box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
-.btn-facebook { background-color: #111; color: #ffc107; }
-.btn-facebook:hover { background-color: #ffc107; color: #111; }
-.btn-gmail {  background-color: #111; color: #ffc107;}
-.btn-gmail:hover {  background-color: #ffc107; color: #111;}
-.btn-onlinejobs { background-color: #111; color: #ffc107; }
-.btn-onlinejobs:hover { background-color: #ffc107; color: #111; }
-.btn-contact-secondary { background-color: #111; color: #ffc107; }
-.btn-contact-secondary:hover { background-color: #ffc107; color: #111; }
 
-/* About Section */
-#about { display: flex; flex-wrap: wrap; align-items: center; gap: 40px; position: relative; background-color: rgba(255,255,255,0.95); border-radius: 15px; padding: 60px 20px; margin-bottom: 40px; justify-content: center; text-align: center; }
-body.dark-mode #about { background-color: rgba(17,17,17,0.9); }
-#about img { max-width: 300px; border-radius: 15px; box-shadow: 0px 10px 25px rgba(0,0,0,0.15); transition: transform 0.4s ease, box-shadow 0.4s ease; }
-#about img:hover { transform: scale(1.08) rotate(1deg); box-shadow: 0px 15px 35px rgba(0,0,0,0.2); }
-#about .text { flex: 1; max-width: 600px; text-align: center; }
-#about .text strong { color: #000; }
-body.dark-mode #about .text strong { color: #ffc107; }
-.education { background-color: rgba(255,255,255,0.2); padding: 15px 20px; border-radius: 12px; margin-top: 15px; font-weight: bold; display: inline-block; }
-body.dark-mode .education { background-color: rgba(255,255,255,0.1); }
+/* ---------- SERVICES, TOOLS, PORTFOLIO -------- */
+.fade-section {
+  opacity:0;
+  transform:translateY(50px);
+  transition:1s ease-out;
+}
+.fade-section.visible {
+  opacity:1;
+  transform:translateY(0);
+}
 
-/* Timeline */
-.timeline { position: relative; margin: 40px 0; padding-left: 40px; }
-.timeline::before { content: ''; position: absolute; left: 18px; top: 0; width: 4px; height: 100%; background: #000; border-radius: 2px; }
-body.dark-mode .timeline::before { background: #ffc107; }
-.timeline-item { position: relative; margin-bottom: 40px; padding-left: 40px; transition: transform 0.3s, box-shadow 0.3s; }
-.timeline-item:hover { transform: translateY(-3px); box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
-.timeline-item:last-child { margin-bottom: 0; }
-.timeline-item::before { content: ''; position: absolute; left: -22px; top: 0; width: 15px; height: 15px; background-color: #000; border-radius: 50%; }
-body.dark-mode .timeline-item::before { background-color: #ffc107; }
-.timeline-item h3 { margin-bottom: 5px; }
-.timeline-item p { margin-bottom: 5px; font-weight: bold; color: #111; }
-body.dark-mode .timeline-item p { color: #f5f5f5; }
-.timeline-item ul { margin-left: 20px; }
+.services-grid,
+.tools-grid,
+.portfolio-grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));
+  gap:30px;
+  padding:0 20px;
+}
 
-/* Skills */
-.skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; justify-items: center; }
-.skill-card { background-color: rgba(255,255,255,0.9); padding: 20px; border-radius: 15px; text-align: center; box-shadow: 0px 5px 20px rgba(0,0,0,0.08); font-weight: 500; display: flex; flex-direction: column; align-items: center; gap: 10px; transition: transform 0.3s; }
-body.dark-mode .skill-card { background-color: rgba(17,17,17,0.9); }
-.skill-card i { font-size: 2rem; animation: iconBounce 1s infinite alternate; transition: color 0.3s; }
-.skill-card:hover { transform: translateY(-5px); }
+.service-card, .tool {
+  background:#fff;
+  padding:35px;
+  text-align:center;
+  border-radius:15px;
+  box-shadow:0 6px 25px rgba(0,0,0,0.07);
+  transition:.35s ease;
+  font-weight:600;
+}
 
-/* Tools */
-.tools-grid { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; }
-.tool { background-color: rgba(255,255,255,0.9); padding: 15px 25px; border-radius: 15px; box-shadow: 0px 5px 20px rgba(0,0,0,0.08); text-align: center; font-weight: bold; display: flex; align-items: center; gap: 10px; transition: transform 0.3s; }
-body.dark-mode .tool { background-color: rgba(17,17,17,0.9); }
-.tool i { font-size: 1.5rem; animation: iconBounce 1s infinite alternate; }
-.tool:hover { transform: translateY(-5px); }
+.service-card:hover,
+.tool:hover {
+  transform:translateY(-7px);
+  box-shadow:0 12px 35px rgba(255,214,0,0.35);
+}
 
-/* Services */
-.services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; justify-items: center; }
-.service-card { background-color: rgba(255,255,255,0.9); padding: 20px; border-radius: 15px; text-align: center; box-shadow: 0px 5px 20px rgba(0,0,0,0.08); transition: transform 0.3s, box-shadow 0.3s; }
-body.dark-mode .service-card { background-color: rgba(17,17,17,0.9); }
-.service-card:hover { transform: translateY(-7px); box-shadow: 0px 12px 30px rgba(0,0,0,0.12); }
+.tool i {
+  color:#FFD600;
+  font-size:1.4rem;
+  margin-right:8px;
+}
 
-/* Contact */
-#contact { text-align: center; }
-#contact form { max-width: 600px; margin: 0 auto; display: flex; flex-direction: column; gap: 15px; }
-#contact input, #contact textarea { padding: 14px; border-radius: 12px; border: 1px solid #ccc; width: 100%; font-size: 1rem; }
-body.dark-mode #contact input, body.dark-mode #contact textarea { background-color: rgba(17,17,17,0.9); border-color: #555; color: #f5f5f5; }
-#contact button { padding: 14px; border: none; border-radius: 50px; background-color: #111; color: #ffc107; font-weight: bold; cursor: pointer; transition: 0.3s; }
-#contact button:hover { background-color: #ffc107; color: #111; }
+.port-card {
+  background:#fff;
+  border-radius:18px;
+  overflow:hidden;
+  box-shadow:0 6px 25px rgba(0,0,0,0.08);
+  transition:0.35s ease;
+}
 
-/* Footer */
-footer { background: linear-gradient(90deg,#111,#333); color: #ffc107; text-align: center; padding: 20px; }
+.port-card:hover {
+  transform:scale(1.05);
+  box-shadow:0 12px 40px rgba(255,214,0,0.3);
+}
 
-/* Animations */
-@keyframes fadeInUp { 0% { opacity: 0; transform: translateY(-20px); } 100% { opacity: 1; transform: translateY(0); } }
-@keyframes iconBounce { 0% { transform: translateY(0); } 100% { transform: translateY(-8px); } }
+.port-card img {
+  width:100%;
+  height:210px;
+  object-fit:cover;
+}
 
-/* Back to Top Button */
-#backToTop { position: fixed; bottom: 40px; right: 40px; background: #111; color: #ffc107; padding: 12px; border-radius: 50%; font-size: 1.2rem; display: none; z-index: 1000; transition: 0.3s; cursor:pointer; }
-#backToTop:hover { background: #ffc107; color: #111; }
+.port-card div {
+  padding:20px;
+  font-size:1.15rem;
+  font-weight:600;
+}
 
-/* Responsive */
-@media screen and (max-width: 768px) {
-  header h1 { font-size: 2.5rem; }
-  header .hero-subtext { font-size: 1.4rem; }
-  header p:nth-of-type(2) { font-size: 1.1rem; }
+/* ---------- TIMELINE -------- */
+.timeline {
+  display:flex;
+  flex-direction:column;
+  gap:30px;
+  align-items:center;
+}
 
-  .hero-buttons { flex-direction: column; gap: 12px; }
-  .hero-buttons a, .hire-btn { width: 100%; max-width: 280px; justify-content: center; }
+.timeline-item {
+  background:#fff;
+  width:80%;
+  max-width:720px;
+  padding:28px 32px;
+  border-radius:18px;
+  box-shadow:0 6px 25px rgba(0,0,0,0.08);
+  opacity:0;
+  transform:translateY(50px);
+  transition:0.8s ease-out;
+}
 
-  .side-nav { display: none !important; }
+.timeline-item.visible {
+  opacity:1;
+  transform:translateY(0);
+}
 
- /* ❗If you are HIDING the side nav on mobile, remove this styling */
-  .side-nav { 
-    display: none !important; 
-  }
+.timeline-item:hover {
+  transform:translateY(-6px);
+  box-shadow:0 12px 35px rgba(255,214,0,0.3);
+}
 
-  #about { flex-direction: column; text-align: center; padding: 40px 20px; }
-  .skills-grid, .services-grid { grid-template-columns: 1fr; }
-  .tools-grid { flex-direction: column; align-items: center; }
+.timeline-item h3 {
+  font-size:1.5rem;
+  margin-bottom:8px;
+  font-weight:700;
+}
 
+/* ---------- CONTACT -------- */
+.btn-contact,
+.btn-contact-secondary {
+  padding:15px 30px;
+  border-radius:35px;
+  text-decoration:none;
+  font-weight:bold;
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  transition:0.3s;
+}
+
+.btn-contact { background:#FFD600; color:#111; border:2px solid #FFD600; }
+.btn-contact:hover { background:#111; color:#FFD600; }
+
+.btn-contact-secondary { background:#111; color:#FFD600; border:2px solid #111; }
+.btn-contact-secondary:hover { background:#FFD600; color:#111; }
+
+/* ---------- PREMIUM ANIMATIONS -------- */
+@keyframes float {
+  0%,100% { transform:translateY(0); }
+  50% { transform:translateY(-18px); }
+}
+
+@keyframes pulse {
+  0% { box-shadow:0 0 0 rgba(255,214,0,0.3); }
+  50% { box-shadow:0 0 40px rgba(255,214,0,0.9); }
+  100% { box-shadow:0 0 0 rgba(255,214,0,0.3); }
+}
+
+@keyframes popIn {
+  0% { opacity:0; transform:scale(0.75); }
+  60% { opacity:1; transform:scale(1.12); }
+  100% { opacity:1; transform:scale(1); }
+}
+
+@keyframes slideInTitle {
+  0% { opacity:0; transform:translateX(-50px) scale(0.95); }
+  100% { opacity:1; transform:translateX(0) scale(1); }
+}
+
+@keyframes fadeLeft {
+  0% { opacity:0; transform:translateX(-40px); }
+  100% { opacity:1; transform:translateX(0); }
+}
+
+@keyframes fadeSlideUp {
+  0% { opacity:0; transform:translateY(40px); }
+  100% { opacity:1; transform:translateY(0); }
 }
 
 </style>
 </head>
 <body>
 
-<!-- Dark Mode Toggle -->
-<button id="darkModeToggle">🌙</button>
+<!-- HERO -->
+<div class="hero-wrapper">
 
-<!-- Side Navigation -->
-<div class="side-nav">
-  <a href="#about" class="active"><i class="fas fa-user"></i></a>
-  <a href="#experience"><i class="fas fa-briefcase"></i></a>
-  <a href="#skills"><i class="fas fa-lightbulb"></i></a>
-  <a href="#tools"><i class="fas fa-tools"></i></a>
-  <a href="#services"><i class="fas fa-cogs"></i></a>
-  <a href="#contact"><i class="fas fa-envelope"></i></a>
+  <div class="profile-container">
+    <div class="profile-circle">
+      <img src="https://raw.githubusercontent.com/leiazurin/Portfolio/refs/heads/main/75O8QiQ.jpg" alt="Leira">
+    </div>
+
+    <h2>Leira Marie Azurin</h2>
+    <div class="yellow-line"></div>
+    <h3>Virtual Assistant</h3>
+
+    <div class="social-links">
+      <a href="https://www.onlinejobs.ph/jobseekers/info/2882637" target="_blank"><i class="fas fa-briefcase"></i></a>
+      <a href="https://mail.google.com/mail/?view=cm&fs=1&to=leiramarieazurin@gmail.com&su=Job%20Opportunity%20Inquiry&body=Hello%20Leira,%0D%0AI%20am%20interested%20in%20hiring%20you%20as%20a%20Virtual%20Assistant.%20Please%20let%20me%20know%20your%20availability%20and%20rates.%0D%0AThank%20you!"
+   target="_blank"><i class="fas fa-envelope"></i></a>
+    </div>
+  </div>
+
+  <div class="intro-text">
+    <h1>Hello</h1>
+    <p>I’m a reliable Virtual Assistant who helps business owners save time through professional data entry, lead generation, admin tasks, and customer support.</p>
+
+    <a href="https://raw.githubusercontent.com/leiazurin/Portfolio/refs/heads/main/LeiraMarieAzurin_Resume.pdf" class="btn btn-yellow">Resume</a>
+    <a class="btn btn-hire" 
+   href="https://mail.google.com/mail/?view=cm&fs=1&to=leiramarieazurin@gmail.com&su=Job%20Opportunity%20Inquiry&body=Hello%20Leira,%0D%0AI%20am%20interested%20in%20hiring%20you%20as%20a%20Virtual%20Assistant.%20Please%20let%20me%20know%20your%20availability%20and%20rates.%0D%0AThank%20you!"
+   target="_blank">
+   Hire Me Now
+</a>
+
+  </div>
+
 </div>
 
-<div style="flex:1;">
-
-<!-- Hero Section -->
-<header>
-  <h1>I'm Leira Marie Azurin</h1>
-  <p class="hero-subtext">A RELIABLE PARTNER FOR YOUR ONLINE BUSINESS</p>
-  <p>Virtual Assistant | Lead Generation | Data Entry Specialist</p>
-
-  <a href="https://mail.google.com/mail/?view=cm&fs=1&to=leiramarieazurin@gmail.com&su=Inquiry%20from%20Portfolio&body=Hello%20Leira%2C" 
-     class="btn-contact hire-btn" target="_blank">
-     <i class="fas fa-envelope"></i> Hire Me Now
-  </a>
-
-  <div class="hero-buttons">
-    <a href="https://www.facebook.com/lei.lacra.azurin" class="btn-contact btn-facebook" target="_blank"><i class="fab fa-facebook-f"></i> Facebook</a>
-    <a href="https://www.onlinejobs.ph/jobseekers/info/2882637" class="btn-contact btn-onlinejobs" target="_blank"><i class="fas fa-briefcase"></i> OnlineJobs.ph</a>
-    <a href="https://raw.githubusercontent.com/leiazurin/Portfolio/refs/heads/main/LeiraMarieAzurin_Resume.pdf" class="btn-contact btn-contact-secondary" download><i class="fas fa-file-download"></i> Download Resume</a>
-  </div>
-</header>
-
-<!-- About Section -->
-<section id="about" class="container">
-  <img src="https://raw.githubusercontent.com/leiazurin/Portfolio/refs/heads/main/75O8QiQ.jpg" alt="Leira Marie Azurin Photo" loading="lazy">
-  <div class="text">
-    <h2>About Me</h2>
-    <p>Reliable and organized professional skilled in <strong>data encoding</strong>, <strong>online research</strong>, and <strong>client support</strong>, with proven experience in government administration and e-commerce operations. Ready to provide efficient virtual assistance for <strong>lead generation</strong> and <strong>data entry</strong> tasks.</p>
-    <div class="education">AMA Computer College – Santiago Campus | Bachelor of Science in Computer Engineering</div>
-    <p><strong>Email:</strong> leiramarieazurin@gmail.com | <strong>Phone:</strong> +639687598458 / +639651529976 | <strong>Location:</strong> Santiago City, Isabela, Philippines</p>
+<!-- PORTFOLIO -->
+<section id="work" class="fade-section">
+  <h2>My Work</h2>
+  <div class="portfolio-grid">
+    <div class="port-card">
+      <img src="sample1.jpg">
+      <div>Data Entry Project</div>
+    </div>
+    <div class="port-card">
+      <img src="sample2.jpg">
+      <div>Lead Generation Sheet</div>
+    </div>
+    <div class="port-card">
+      <img src="sample3.jpg">
+      <div>Customer Support Tasks</div>
+    </div>
   </div>
 </section>
 
-<!-- Experience Timeline -->
-<section id="experience" class="container">
+<!-- EXPERIENCE -->
+<section id="experience" class="fade-section">
   <h2>Professional Experience</h2>
   <div class="timeline">
-    <div class="timeline-item">
+    <div class="timeline-item fade-section">
       <h3>Support Staff</h3>
-      <p>4th Congressional District Office of Isabela | 7/2024 – 9/2025</p>
+      <p><strong>4th Congressional District Office of Isabela</strong> — 07/2024–09/2025</p>
       <ul>
-        <li>Managed and encoded client data for educational and medical assistance programs.</li>
-        <li>Assisted constituents with inquiries, ensuring efficient and client-centered support.</li>
-        <li>Coordinated with teams for program implementation and event support.</li>
+        <li>Encoded and managed client data related to educational and medical assistance programs.</li>
+        <li>Assisted constituents by addressing inquiries and providing efficient support.</li>
+        <li>Coordinated with internal teams for program documentation and events.</li>
       </ul>
     </div>
-    <div class="timeline-item">
+
+    <div class="timeline-item fade-section">
       <h3>Facebook Page Manager</h3>
-      <p>K Gold Beauty Essentials Corp. | Remote | 11/2023 – 7/2024</p>
+      <p><strong>K Gold Beauty Essentials Corp.</strong> — 11/2023–07/2024</p>
       <ul>
-        <li>Managed posts, engagement, product updates, and ad campaigns.</li>
-        <li>Responded to customer inquiries and tracked orders to delivery.</li>
+        <li>Created and scheduled posts, monitored engagement, and updated product details.</li>
+        <li>Handled messages, order tracking, and customer follow-ups.</li>
+        <li>Assisted with ad campaigns and performance monitoring.</li>
       </ul>
     </div>
-    <div class="timeline-item">
-      <h3>Non-Voice Chat Support Representative</h3>
-      <p>K Gold Beauty Essentials Corp. | 3/2021 – 9/2021</p>
+
+    <div class="timeline-item fade-section">
+      <h3>Non-Voice Chat Support</h3>
+      <p><strong>K Gold Beauty Essentials Corp.</strong> — 03/2021–09/2021</p>
       <ul>
-        <li>Handled chat-based customer support and order processing.</li>
-        <li>Maintained accurate records using Google Sheets and ensured timely delivery.</li>
+        <li>Provided chat-based support and processed daily customer orders.</li>
+        <li>Maintained organized order logs using Google Sheets.</li>
+        <li>Resolved customer concerns to improve satisfaction.</li>
       </ul>
     </div>
   </div>
 </section>
 
-<!-- Skills Section -->
-<section id="skills" class="container">
-  <h2>Core Competencies</h2>
-  <div class="skills-grid">
-    <div class="skill-card"><i class="fas fa-keyboard"></i> Data Entry & Database Management</div>
-    <div class="skill-card"><i class="fas fa-magnifying-glass"></i> Lead Generation & Online Research</div>
-    <div class="skill-card"><i class="fas fa-file-alt"></i> Administrative & Clerical Support</div>
-    <div class="skill-card"><i class="fas fa-headset"></i> Customer Service (Non-Voice)</div>
-    <div class="skill-card"><i class="fab fa-facebook"></i> Social Media Management</div>
-    <div class="skill-card"><i class="fas fa-box"></i> Order Tracking & Fulfillment</div>
-    <div class="skill-card"><i class="fas fa-eye"></i> Attention to Detail & Time Management</div>
-    <div class="skill-card"><i class="fas fa-laptop-code"></i> Independent Remote Work</div>
-  </div>
-</section>
-
-<!-- Tools Section -->
-<section id="tools" class="container">
-  <h2>Tools & Platforms</h2>
-  <div class="tools-grid">
-    <div class="tool"><i class="fas fa-file-excel"></i> Google Workspace</div>
-    <div class="tool"><i class="fas fa-file-word"></i> Microsoft Office</div>
-    <div class="tool"><i class="fab fa-facebook"></i> Facebook Management</div>
-    <div class="tool"><i class="fas fa-bullhorn"></i> Meta Ads</div>
-    <div class="tool"><i class="fas fa-database"></i> CRM & Databases</div>
-    <div class="tool"><i class="fas fa-comment-dots"></i> Chat Support Tools</div>
-  </div>
-</section>
-
-<!-- Services Section -->
-<section id="services" class="container">
+<!-- SERVICES -->
+<section id="services" class="fade-section">
   <h2>Services</h2>
   <div class="services-grid">
     <div class="service-card">Lead Generation & Prospect Research</div>
@@ -309,18 +463,33 @@ footer { background: linear-gradient(90deg,#111,#333); color: #ffc107; text-alig
     <div class="service-card">CRM Updates & Client Records</div>
     <div class="service-card">Order Tracking & Fulfillment</div>
     <div class="service-card">Social Media Posting & Engagement</div>
-    <div class="service-card">Chat Support & Customer Inquiry Handling</div>
+    <div class="service-card">Chat Support & Inquiry Handling</div>
   </div>
 </section>
 
-<!-- Contact Section -->
-<section id="contact" class="container">
+<!-- TOOLS -->
+<section id="tools" class="fade-section">
+  <h2>Tools & Platforms</h2>
+  <div class="tools-grid">
+    <div class="tool"><i class="fas fa-file-excel"></i> Google Workspace</div>
+    <div class="tool"><i class="fas fa-file-word"></i> Microsoft Office</div>
+    <div class="tool"><i class="fab fa-facebook"></i> Facebook Management</div>
+    <div class="tool"><i class="fas fa-bullhorn"></i> Meta Ads</div>
+    <div class="tool"><i class="fas fa-database"></i> CRM Tools</div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="fade-section">
   <h2>Contact Me</h2>
-  <div style="display:flex; gap:15px; flex-wrap:wrap; justify-content:center; margin-bottom:20px;">
-    <a href="https://www.facebook.com/lei.lacra.azurin" class="btn-contact btn-facebook" target="_blank"><i class="fab fa-facebook-f"></i> Facebook</a>
-    <a href="https://www.onlinejobs.ph/jobseekers/info/2882637" class="btn-contact btn-onlinejobs" target="_blank"><i class="fas fa-briefcase"></i> OnlineJobs.ph</a>
-    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=leiramarieazurin@gmail.com" class="btn-contact btn-gmail" target="_blank"><i class="fas fa-envelope"></i> Gmail</a>
-    <a href="https://raw.githubusercontent.com/leiazurin/Portfolio/refs/heads/main/LeiraMarieAzurin_Resume.pdf" class="btn-contact btn-contact-secondary" download><i class="fas fa-file-download"></i> Download Resume</a>
+  <div style="display:flex; gap:15px; flex-wrap:wrap; justify-content:center;">
+    <a href="https://www.facebook.com/lei.lacra.azurin" class="btn-contact" target="_blank"><i class="fab fa-facebook-f"></i> Facebook</a>
+    <a href="https://www.onlinejobs.ph/jobseekers/info/2882637" class="btn-contact" target="_blank"><i class="fas fa-briefcase"></i> OnlineJobs</a>
+    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=leiramarieazurin@gmail.com&su=Job%20Opportunity%20Inquiry&body=Hello%20Leira,%0D%0AI%20am%20interested%20in%20hiring%20you%20as%20a%20Virtual%20Assistant.%20Please%20let%20me%20know%20your%20availability%20and%20rates.%0D%0AThank%20you!" class="btn-contact" target="_blank"><i class="fas fa-envelope"></i> Gmail</a>
+    <a href="https://github.com/leiazurin/Portfolio/raw/main/LeiraMarieAzurin_Resume.pdf" 
+       class="btn-contact-secondary" download>
+       <i class="fas fa-file-download"></i> Download Resume
+    </a>
   </div>
 </section>
 
@@ -328,56 +497,17 @@ footer { background: linear-gradient(90deg,#111,#333); color: #ffc107; text-alig
   &copy; 2025 Leira Marie Azurin | Virtual Assistant Portfolio
 </footer>
 
-<!-- Back to Top Button -->
-<a href="#" id="backToTop"><i class="fas fa-arrow-up"></i></a>
-
 <script>
-// Scroll Animation
-const sections = document.querySelectorAll('section');
-const observer = new IntersectionObserver((entries, observer) => {
+/* Scroll Reveal */
+const observer = new IntersectionObserver((entries)=> {
   entries.forEach(entry => {
-    if(entry.isIntersecting){
-      entry.target.classList.add('visible');
-      observer.unobserve(entry.target);
+    if (entry.isIntersecting) {
+      entry.target.classList.add("visible");
     }
   });
-},{ threshold: 0.1 });
-sections.forEach(section => observer.observe(section));
-
-// Highlight Active Side Nav & Smooth Scroll
-const navLinks = document.querySelectorAll('.side-nav a');
-navLinks.forEach(anchor => {
-  anchor.addEventListener('click', function(e) {
-    e.preventDefault();
-    document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
-  });
-});
-window.addEventListener('scroll', () => {
-  let current = '';
-  sections.forEach(section => {
-    const sectionTop = section.offsetTop - 150;
-    if(scrollY >= sectionTop){ current = section.getAttribute('id'); }
-  });
-  navLinks.forEach(link => link.classList.remove('active'));
-  document.querySelector('.side-nav a[href="#'+current+'"]')?.classList.add('active');
 });
 
-// Back to Top
-const backToTop = document.getElementById('backToTop');
-window.addEventListener('scroll', () => {
-  if(window.scrollY > 300) backToTop.style.display = 'block';
-  else backToTop.style.display = 'none';
-});
-backToTop.addEventListener('click', e => {
-  e.preventDefault();
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-});
-
-// Dark Mode Toggle
-const toggle = document.getElementById('darkModeToggle');
-toggle.addEventListener('click', () => {
-  document.body.classList.toggle('dark-mode');
-});
+document.querySelectorAll(".fade-section, .timeline-item").forEach(el => observer.observe(el));
 </script>
 
 </body>
