@@ -221,7 +221,7 @@ h2 {
 .tools-grid,
 .portfolio-grid {
   display:grid;
-  grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));
+grid-template-columns:repeat(auto-fit, minmax(340px, 1fr));
   gap:30px;
   padding:0 20px;
 }
@@ -263,8 +263,14 @@ h2 {
 
 .port-card img {
   width:100%;
-  height:210px;
+  height:260px;
   object-fit:cover;
+}
+
+  .port-card a {
+  color: inherit;
+  text-decoration: none;
+  display: block;
 }
 
 .port-card div {
@@ -402,24 +408,31 @@ h2 {
   <!-- PORTFOLIO -->
 <section id="work" class="fade-section">
   <h2>My Work</h2>
-  <div class="port-card">
-  <a href="https://youtu.be/kLxE_uMIDyw?si=Sl_7xC5bKUzCBeIH" target="_blank">
-    <img src="https://raw.githubusercontent.com/leiazurin/Portfolio/refs/heads/main/project%201.png">
-    <div>YouTube Video Content Creation Project</div>
-  </a>
-</div>
+
+  <div class="portfolio-grid">
+
+    <div class="port-card">
+      <a href="https://youtu.be/kLxE_uMIDyw?si=Sl_7xC5bKUzCBeIH" target="_blank">
+        <img src="https://raw.githubusercontent.com/leiazurin/Portfolio/refs/heads/main/project%201.png">
+        <div>YouTube Video Content Creation Project</div>
+      </a>
+    </div>
+
     <div class="port-card">
       <a href="https://www.youtube.com/shorts/fnbXh-nxHUI" target="_blank">
-      <img src="https://raw.githubusercontent.com/leiazurin/Portfolio/refs/heads/main/reel 1.png">
-      <div>YouTube Reel Content Creation Sheet</div>
-    </a>
+        <img src="https://raw.githubusercontent.com/leiazurin/Portfolio/refs/heads/main/reel%201.png">
+        <div>YouTube Reel Content Creation Sheet</div>
+      </a>
     </div>
+
     <div class="port-card">
       <img src="sample3.jpg">
       <div>Customer Support Tasks</div>
     </div>
+
   </div>
 </section>
+
 
 <!-- EXPERIENCE -->
 <section id="experience" class="fade-section">
@@ -528,6 +541,7 @@ document.querySelectorAll(".fade-section, .timeline-item").forEach(el => observe
 
 </body>
 </html>
+
 
 
 
