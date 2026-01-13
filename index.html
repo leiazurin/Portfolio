@@ -273,6 +273,31 @@ grid-template-columns:repeat(auto-fit, minmax(340px, 1fr));
   display: block;
 }
 
+  .port-content {
+  padding: 18px 20px;
+}
+
+.port-content h4 {
+  margin: 0 0 8px;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.port-content p {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  font-weight: 400;
+  color: #333;
+}
+
+.port-card a {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+
 .port-card div {
   padding:20px;
   font-size:1.15rem;
@@ -412,25 +437,54 @@ grid-template-columns:repeat(auto-fit, minmax(340px, 1fr));
   <div class="portfolio-grid">
 
     <div class="port-card">
-      <a href="https://youtu.be/kLxE_uMIDyw?si=Sl_7xC5bKUzCBeIH" target="_blank">
-        <img src="https://raw.githubusercontent.com/leiazurin/Portfolio/refs/heads/main/project%201.png">
-        <div>YouTube Video Content Creation Project</div>
-      </a>
-    </div>
-
-    <div class="port-card">
-      <a href="https://www.youtube.com/shorts/fnbXh-nxHUI" target="_blank">
-        <img src="https://raw.githubusercontent.com/leiazurin/Portfolio/refs/heads/main/reel%201.png">
-        <div>YouTube Reel Content Creation Sheet</div>
-      </a>
-    </div>
-
-    <div class="port-card">
-      <img src="sample3.jpg">
-      <div>Customer Support Tasks</div>
-    </div>
-
+    <a href="https://youtu.be/kLxE_uMIDyw?si=Sl_7xC5bKUzCBeIH" target="_blank">
+      <img src="https://raw.githubusercontent.com/leiazurin/Portfolio/refs/heads/main/project%201.png">
+      <div class="port-content">
+        <h4>YouTube Video Content Creation</h4>
+        <p>
+          Assisted with script development, video clipping, animations, and
+          smooth transitions to support engaging long-form YouTube content.
+        </p>
+      </div>
+    </a>
   </div>
+
+    <div class="port-card">
+    <a href="https://www.youtube.com/shorts/fnbXh-nxHUI" target="_blank">
+      <img src="https://raw.githubusercontent.com/leiazurin/Portfolio/refs/heads/main/reel%201.png">
+      <div class="port-content">
+        <h4>YouTube Reel Creation</h4>
+        <p>
+          Independently created the reel as part of my task—writing the script,
+          sourcing images and video clips, selecting sound, and editing the
+          final output.
+        </p>
+      </div>
+    </a>
+  </div>
+
+    
+
+    <div class="port-card">
+    <img src="sample3.jpg">
+    <div class="port-content">
+      <h4>Customer Support Tasks</h4>
+      <p>
+        Handled chat inquiries, order tracking, and customer follow-ups with
+        accurate documentation and timely responses.
+      </p>
+    </div>
+  </div>
+
+</div>
+
+  <p style="text-align:center; max-width:900px; margin: -25px auto 40px; font-size:1.05rem;">
+  To view more of the YouTube videos I contributed to, you may visit the channel here:
+  <a href="https://www.youtube.com/@K-ShowInsights/featured" target="_blank" style="font-weight:600; color:#111;">
+    K-Show Insights on YouTube
+  </a>
+</p>
+
 </section>
 
 
@@ -541,6 +595,7 @@ document.querySelectorAll(".fade-section, .timeline-item").forEach(el => observe
 
 </body>
 </html>
+
 
 
 
