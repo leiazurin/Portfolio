@@ -134,6 +134,13 @@ h2 {
   margin:12px 0 4px;
   font-weight:900;
 }
+  .youtube-note {
+  text-align: center;
+  max-width: 900px;
+  margin: 20px auto 40px;
+  font-size: 1.05rem;
+}
+
 
 .yellow-line {
   width:60px;
@@ -169,6 +176,17 @@ h2 {
   opacity:0;
   transform:translateX(-40px);
   animation: fadeLeft 1s ease-out forwards 0.55s;
+}
+
+/* Title link */
+.port-content h4 a {
+  color: #1a1a1a;          /* normal */
+  text-decoration: none;
+  transition: color 0.25s ease;
+}
+
+.port-content h4 a:hover {
+  color: #1e6bff;          /* blue on hover */
 }
 
 .btn {
@@ -220,11 +238,14 @@ h2 {
 .services-grid,
 .tools-grid,
 .portfolio-grid {
-  display:grid;
-grid-template-columns:repeat(auto-fit, minmax(340px, 1fr));
-  gap:30px;
-  padding:0 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 22px;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 16px;
 }
+
 
 .service-card, .tool {
   background:#fff;
@@ -256,14 +277,18 @@ grid-template-columns:repeat(auto-fit, minmax(340px, 1fr));
   transition:0.35s ease;
 }
 
-.port-card:hover {
-  transform:scale(1.05);
-  box-shadow:0 12px 40px rgba(255,214,0,0.3);
+.port-card {
+  will-change: transform;
 }
 
+.port-card:hover {
+  transform: translateY(-6px);
+}
+
+
 .port-card img {
-  width:100%;
-  height:260px;
+  width:110%;
+  height:210px;
   object-fit:cover;
 }
 
@@ -274,14 +299,13 @@ grid-template-columns:repeat(auto-fit, minmax(340px, 1fr));
 }
 
   .port-content {
-  padding: 18px 20px;
+  padding: 14px 16px;
 }
 
 .port-content h4 {
-  margin: 0 0 8px;
-  font-size: 1.2rem;
-  font-weight: 700;
+  font-size: 1.05rem;
 }
+
 
 .port-content p {
   margin: 0;
@@ -291,18 +315,136 @@ grid-template-columns:repeat(auto-fit, minmax(340px, 1fr));
   color: #333;
 }
 
+.port-content p a {
+  color: #1a1a1a;          /* normal color */
+  font-weight: 600;
+  transition: color 0.25s ease;
+}
+
+.port-content p a:hover {
+  color: #1e6bff;          /* blue on hover */
+}
+
+
 .port-card a {
   text-decoration: none;
   color: inherit;
   display: block;
 }
 
-
-.port-card div {
-  padding:20px;
-  font-size:1.15rem;
-  font-weight:600;
+.port-card.project1 .slider {
+  position: relative;
+  width: 100%;
+  height: 260px;         /* fixed or max height */
+  overflow: hidden;
+  background: #000;
 }
+
+.port-card.project1 .slider img {
+  position: absolute;    /* crucial for sliding */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;   /* keeps image visible */
+  opacity: 0;
+  transition: opacity 0.8s ease;
+}
+
+.port-card.project1 .slider img.active {
+  opacity: 1;            /* show only the active image */
+  z-index: 1;
+}
+
+
+
+.slider {
+  position: relative;
+  width: 100%;
+  height: 180px;
+  overflow: hidden;
+  background: #000;
+}
+
+
+.slider img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.8s ease;
+}
+
+.slider {
+  position: relative;
+  width: 100%;
+  height: 260px;
+  overflow: hidden;
+  background: #000; /* prevents white flash */
+}
+
+
+/* Slider arrows – optimized */
+.slider .arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.65);
+  color: #FFD600;
+  border: none;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  transition: 0.25s ease;
+  pointer-events: auto;
+}
+
+/* Always visible on mobile */
+@media (max-width: 768px) {
+  .slider .arrow {
+    opacity: 1;
+  }
+}
+
+/* Desktop hover only */
+@media (min-width: 769px) {
+  .slider .arrow {
+    opacity: 0;
+  }
+
+  .slider:hover .arrow {
+    opacity: 1;
+  }
+}
+
+.slider .arrow.prev {
+  left: 10px;
+}
+
+.slider .arrow.next {
+  right: 10px;
+}
+
+.slider .arrow:hover {
+  background: #FFD600;
+  color: #111;
+  transform: translateY(-50%) scale(1.1);
+}
+
+
+
+.slider img.active {
+  opacity: 1;
+}
+
 
 /* ---------- TIMELINE -------- */
 .timeline {
@@ -436,57 +578,62 @@ grid-template-columns:repeat(auto-fit, minmax(340px, 1fr));
 
   <div class="portfolio-grid">
 
-    <div class="port-card">
-    <a href="https://youtu.be/kLxE_uMIDyw?si=Sl_7xC5bKUzCBeIH" target="_blank">
-      <img src="https://raw.githubusercontent.com/leiazurin/Portfolio/refs/heads/main/project%201.png">
-      <div class="port-content">
-        <h4>YouTube Video Content Creation</h4>
-        <p>
-          Assisted with script development, video clipping, animations, and
-          smooth transitions to support engaging long-form YouTube content.
-        </p>
-      </div>
-    </a>
+    <!-- Project 1: Slider -->
+<div class="port-card project1">
+  <div class="slider" data-index="0">
+    <button class="arrow prev">&#10094;</button>
+    <button class="arrow next">&#10095;</button>
+    <img src="https://raw.githubusercontent.com/leiazurin/Portfolio/refs/heads/main/project1.png" class="active">
+    <img src="https://raw.githubusercontent.com/leiazurin/Portfolio/refs/heads/main/project2.png">
+    <img src="https://raw.githubusercontent.com/leiazurin/Portfolio/refs/heads/main/project3.png">
+    <img src="https://raw.githubusercontent.com/leiazurin/Portfolio/refs/heads/main/project4.png">
+    <img src="https://raw.githubusercontent.com/leiazurin/Portfolio/refs/heads/main/project5.png">
   </div>
-
-    <div class="port-card">
-    <a href="https://www.youtube.com/shorts/fnbXh-nxHUI" target="_blank">
-      <img src="https://raw.githubusercontent.com/leiazurin/Portfolio/refs/heads/main/reel%201.png">
-      <div class="port-content">
-        <h4>YouTube Reel Creation</h4>
-        <p>
-          Independently created the reel as part of my task—writing the script,
-          sourcing images and video clips, selecting sound, and editing the
-          final output.
-        </p>
-      </div>
-    </a>
+  <div class="port-content">
+    <h4>
+      <a href="https://www.youtube.com/@K-ShowInsights/videos" target="_blank">
+        YouTube Video Content Creation
+      </a>
+    </h4>
+    <p>
+      I supported long-form YouTube content by developing ideas, scripting, marking timestamps, giving team feedback, and ensuring smooth, engaging edits. One of the videos I worked on reached 13k views. I also independently created short-form reels from concept to polished, high-quality final videos.
+      <br><br>
+      To view more videos and reels:
+      <a href="https://www.youtube.com/@K-ShowInsights/featured" target="_blank">
+        K-Show Insights on YouTube
+      </a>
+    </p>
   </div>
-
-    
-
-    <div class="port-card">
-    <img src="sample3.jpg">
-    <div class="port-content">
-      <h4>Customer Support Tasks</h4>
-      <p>
-        Handled chat inquiries, order tracking, and customer follow-ups with
-        accurate documentation and timely responses.
-      </p>
-    </div>
-  </div>
-
 </div>
 
-  <p style="text-align:center; max-width:900px; margin: -25px auto 40px; font-size:1.05rem;">
-  To view more of the YouTube videos I contributed to, you may visit the channel here:
-  <a href="https://www.youtube.com/@K-ShowInsights/featured" target="_blank" style="font-weight:600; color:#111;">
-    K-Show Insights on YouTube
-  </a>
-</p>
+    <!-- Project 2 -->
+    <div class="port-card">
+      <a href="https://www.youtube.com/shorts/fnbXh-nxHUI" target="_blank">
+        <img src="picture.png">
+        <div class="port-content">
+          <h4>YouTube Reel Creation</h4>
+          <p>
+            .
+          </p>
+        </div>
+      </a>
+    </div>
+
+    <!-- Project 3 -->
+    <div class="port-card">
+      <img src="sample3.jpg">
+      <div class="port-content">
+        <h4>Customer Support Tasks</h4>
+        <p>
+          Handled chat inquiries, order tracking, and customer follow-ups with
+          accurate documentation and timely responses.
+        </p>
+      </div>
+    </div>
+
+  </div> <!-- END portfolio-grid -->
 
 </section>
-
 
 <!-- EXPERIENCE -->
 <section id="experience" class="fade-section">
@@ -504,7 +651,7 @@ grid-template-columns:repeat(auto-fit, minmax(340px, 1fr));
 
     <div class="timeline-item fade-section">
       <h3>General Virtual Assistant</h3>
-      <p><strong>Remote </strong> — 07/2023–05/2024</p>
+      <p><strong>Upwork </strong> — 07/2023–05/2024</p>
       <ul>
         <li>Researched trending Korean dramas and popular tourist destinations in South Korea to support YouTube content creation.</li>
         <li>Created clear summaries and plot breakdowns of K-dramas for engaging and informative video scripts.</li>
@@ -590,19 +737,43 @@ const observer = new IntersectionObserver((entries)=> {
   });
 });
 
-document.querySelectorAll(".fade-section, .timeline-item").forEach(el => observer.observe(el));
+const sliders = document.querySelectorAll(".slider");
+
+sliders.forEach(slider => {
+  const images = slider.querySelectorAll("img");
+  const prev = slider.querySelector(".prev");
+  const next = slider.querySelector(".next");
+  let index = 0;
+
+  function showImage(i) {
+    images.forEach(img => img.classList.remove("active"));
+    images[i].classList.add("active");
+  }
+
+  showImage(index); // show first image
+
+  function nextSlide() {
+    index = (index + 1) % images.length;
+    showImage(index);
+  }
+
+  function prevSlide() {
+    index = (index - 1 + images.length) % images.length;
+    showImage(index);
+  }
+
+  next.addEventListener("click", nextSlide);
+  prev.addEventListener("click", prevSlide);
+
+  setInterval(nextSlide, 3000); // autoplay
+});
+
+
+/* Observe fade elements */
+document
+  .querySelectorAll(".fade-section, .timeline-item")
+  .forEach(el => observer.observe(el));
 </script>
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
