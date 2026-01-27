@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact | Leira Marie Azurin</title>
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+<body>
+  <header class="nav">
+    <div class="container navbar">
+      <a class="brand" href="index.html">
+        <div class="brand-badge">LA</div>
+        <div class="brand-text">
+          <strong>Leira Azurin</strong>
+          <span>General Virtual Assistant</span>
+        </div>
+      </a>
+
+      <nav class="menu">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="projects.html">Projects</a>
+      </nav>
+
+      <a class="btn-pill active" href="contact.html">Contact</a>
+    </div>
+  </header>
+
+  <main class="container section">
+    <h1 class="section-title">Contact</h1>
+    <p class="section-sub">
+      Want to work together? Send me details of the task and your preferred tools/output format.
+    </p>
+
+    <div class="contact-wrap">
+      <div class="card">
+        <h3>Send a message</h3>
+        <p class="note">This will open your email app with the message details.</p>
+        <div class="spacer"></div>
+
+        <form class="form" onsubmit="return sendEmail();">
+          <input class="input" id="name" type="text" placeholder="Your name" required />
+          <input class="input" id="email" type="email" placeholder="Your email" required />
+          <input class="input" id="subject" type="text" placeholder="Subject" required />
+          <textarea class="input" id="message" placeholder="Message" required></textarea>
+          <button class="btn" type="submit">Send via Email</button>
+          <p class="note">Tip: If mailto doesn’t work, just email me directly.</p>
+        </form>
+      </div>
+
+      <div class="card">
+        <h3>My Details</h3>
+        <div class="spacer"></div>
+
+        <div class="kv">
+          <div>
+            <div class="label">Email</div>
+            <a href="mailto:leiramarieazurin@gmail.com">leiramarieazurin@gmail.com</a>
+          </div>
+          <div>
+            <div class="label">Phone</div>
+            <a href="tel:+639687598458">+63 968 759 8458</a><br/>
+            <a href="tel:+639651529976">+63 965 152 9976</a>
+          </div>
+          <div>
+            <div class="label">Location</div>
+            <div>Santiago City, Isabela, Philippines</div>
+          </div>
+          <div>
+            <div class="label">Availability</div>
+            <div>Remote • Part-time or Full-time</div>
+          </div>
+        </div>
+
+        <div class="spacer"></div>
+        <a class="btn outline small-btn" href="assets/Resume_Azurin.PDF" target="_blank">Open Resume</a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      © <span id="y"></span> Leira Marie Azurin
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+
+    function sendEmail(){
+  const name = document.getElementById("name").value.trim();
+  const email = document.getElementById("email").value.trim();
+  const subject = document.getElementById("subject").value.trim();
+  const message = document.getElementById("message").value.trim();
+
+  const to = "leiramarieazurin@gmail.com";
+
+  const body = 
+    "Name: " + name + "\n" +
+    "Email: " + email + "\n\n" +
+    message;
+
+  const gmailUrl = 
+    "https://mail.google.com/mail/?view=cm&fs=1" +
+    "&to=" + encodeURIComponent(to) +
+    "&su=" + encodeURIComponent(subject) +
+    "&body=" + encodeURIComponent(body);
+
+  window.open(gmailUrl, "_blank");
+  return false;
+}
+
+  </script>
+</body>
+</html>
