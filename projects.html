@@ -34,53 +34,53 @@
       These are sample portfolio projects based on real tasks I’ve done.
     </p>
 
-    <!-- PROJECT 1: YOUTUBE (slider + blurred background + fullscreen) -->
+    <!-- PROJECT 1: YOUTUBE (slider + blur + fullscreen) -->
     <div class="project-card-advanced">
-
       <div class="project-gallery">
-        <img class="bg active"   src="https://raw.githubusercontent.com/leiazurin/Portfolio/refs/heads/main/project1.png" alt="">
-        <img class="main active zoomable" src="https://raw.githubusercontent.com/leiazurin/Portfolio/refs/heads/main/assets/project1.png" alt="">
+        <!-- Pair 1 -->
+        <img class="bg active" src="https://raw.githubusercontent.com/leiazurin/Portfolio/refs/heads/main/assets/project1.png" alt="">
+        <img class="main active zoomable" src="https://raw.githubusercontent.com/leiazurin/Portfolio/refs/heads/main/assets/project1.png" alt="Project screenshot 1">
 
-        <img class="bg"   src="https://raw.githubusercontent.com/leiazurin/Portfolio/refs/heads/main/project2.png" alt="">
-        <img class="main zoomable" src="https://raw.githubusercontent.com/leiazurin/Portfolio/refs/heads/main/assets/project2.png" alt="">
+        <!-- Pair 2 -->
+        <img class="bg" src="https://raw.githubusercontent.com/leiazurin/Portfolio/refs/heads/main/assets/project2.png" alt="">
+        <img class="main zoomable" src="https://raw.githubusercontent.com/leiazurin/Portfolio/refs/heads/main/assets/project2.png" alt="Project screenshot 2">
 
-        <img class="bg"   src="https://raw.githubusercontent.com/leiazurin/Portfolio/refs/heads/main/project3.png" alt="">
-        <img class="main zoomable" src="https://raw.githubusercontent.com/leiazurin/Portfolio/refs/heads/main/assets/project3.png" alt="">
+        <!-- Pair 3 -->
+        <img class="bg" src="https://raw.githubusercontent.com/leiazurin/Portfolio/refs/heads/main/assets/project3.png" alt="">
+        <img class="main zoomable" src="https://raw.githubusercontent.com/leiazurin/Portfolio/refs/heads/main/assets/project3.png" alt="Project screenshot 3">
 
-        <img class="bg"   src="https://raw.githubusercontent.com/leiazurin/Portfolio/refs/heads/main/project4.png" alt="">
-        <img class="main zoomable" src="https://raw.githubusercontent.com/leiazurin/Portfolio/refs/heads/main/assets/project4.png" alt="">
+        <!-- Pair 4 -->
+        <img class="bg" src="https://raw.githubusercontent.com/leiazurin/Portfolio/refs/heads/main/assets/project4.png" alt="">
+        <img class="main zoomable" src="https://raw.githubusercontent.com/leiazurin/Portfolio/refs/heads/main/assets/project4.png" alt="Project screenshot 4">
 
-        <img class="bg"   src="https://raw.githubusercontent.com/leiazurin/Portfolio/refs/heads/main/project5.png" alt="">
-        <img class="main zoomable" src="https://raw.githubusercontent.com/leiazurin/Portfolio/refs/heads/main/assets/project5.png" alt="">
+        <!-- Pair 5 -->
+        <img class="bg" src="https://raw.githubusercontent.com/leiazurin/Portfolio/refs/heads/main/assets/project5.png" alt="">
+        <img class="main zoomable" src="https://raw.githubusercontent.com/leiazurin/Portfolio/refs/heads/main/assets/project5.png" alt="Project screenshot 5">
       </div>
 
       <div class="port-content">
         <h4>
-          <a href="https://www.youtube.com/@K-ShowInsights/videos" target="_blank">
+          <a href="https://www.youtube.com/@K-ShowInsights/videos" target="_blank" rel="noopener">
             🎬 YouTube Video Content Creation
           </a>
         </h4>
-
         <p>
           I supported long-form YouTube content by developing ideas, scripting, marking timestamps, giving team feedback,
           and ensuring smooth, engaging edits. One of the videos I worked on reached <b>13,000+ views</b>.
           I also independently created short-form reels from concept to polished final videos.
           <br><br>
           👉 View channel:
-          <a href="https://www.youtube.com/@K-ShowInsights/featured" target="_blank">
+          <a href="https://www.youtube.com/@K-ShowInsights/featured" target="_blank" rel="noopener">
             K-Show Insights on YouTube
           </a>
         </p>
       </div>
-
     </div>
 
-
-    <!-- PROJECT 2: FACEBOOK (single image + blurred background + fullscreen) -->
+    <!-- PROJECT 2: FACEBOOK (single + blur + fullscreen) -->
     <div class="project-card-advanced" style="margin-top: 22px;">
-
       <div class="project-gallery">
-        <img class="bg active"   src="assets/fb.png" alt="">
+        <img class="bg active" src="assets/fb.png" alt="">
         <img class="main active zoomable" src="assets/fb.png" alt="Facebook orders screenshot">
       </div>
 
@@ -94,10 +94,9 @@
           🛠 Tools used: Facebook Business Suite, Messenger, Google Sheets
         </p>
       </div>
-
     </div>
 
-    <!-- DATA ENTRY CARD -->
+    <!-- DATA ENTRY -->
     <div class="grid" style="margin-top: 22px;">
       <div class="card col-12">
         <h3>Data Entry for Assistance Programs</h3>
@@ -118,7 +117,6 @@
       <div class="spacer"></div>
       <a class="btn" href="contact.html">Contact me</a>
     </div>
-
   </main>
 
   <footer class="footer">
@@ -130,7 +128,7 @@
   <!-- FULLSCREEN IMAGE MODAL -->
   <div id="imgModal" class="img-modal">
     <span class="img-close">&times;</span>
-    <img class="img-modal-content" id="imgModalContent">
+    <img class="img-modal-content" id="imgModalContent" alt="">
   </div>
 
   <script>
@@ -141,24 +139,21 @@
     const modalImg = document.getElementById("imgModalContent");
     const closeBtn = document.querySelector(".img-close");
 
-    function bindZoomables(){
-      document.querySelectorAll(".zoomable").forEach(img => {
-        img.addEventListener("click", () => {
-          modal.style.display = "flex";
-          modalImg.src = img.src;
-        });
+    document.querySelectorAll(".zoomable").forEach(img => {
+      img.addEventListener("click", () => {
+        modal.style.display = "flex";
+        modalImg.src = img.src;
       });
-    }
-    bindZoomables();
+    });
 
     closeBtn.onclick = () => modal.style.display = "none";
     modal.onclick = (e) => { if(e.target === modal) modal.style.display = "none"; };
 
-    // Slider (supports bg + main pairs)
+    // Slider (switch bg + main pairs together)
     document.querySelectorAll(".project-gallery").forEach(gallery => {
       const bgImages = gallery.querySelectorAll("img.bg");
       const mainImages = gallery.querySelectorAll("img.main");
-      if(mainImages.length <= 1) return;
+      if (mainImages.length <= 1) return;
 
       let index = 0;
       setInterval(() => {
@@ -174,4 +169,3 @@
   </script>
 </body>
 </html>
-
