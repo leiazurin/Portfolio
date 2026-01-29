@@ -23,16 +23,12 @@
         <a href="services.html">Services</a>
         <a class="active" href="projects.html">Projects</a>
       </nav>
-
       <a class="btn-pill" href="contact.html">Contact</a>
     </div>
   </header>
 
-  <main class="container section">
-    <h1 class="section-title">Projects</h1>
-    <p class="section-sub">
-      These are sample portfolio projects based on real tasks I’ve done.
-    </p>
+<main class="container section">
+    <h1 class="section-title">Project for Clients</h1>
 
     <!-- PROJECT 1: YOUTUBE (slider + blur + fullscreen) -->
     <div class="project-card-advanced">
@@ -77,47 +73,42 @@
       </div>
     </div>
 
-    <!-- PROJECT 2: FACEBOOK (single + blur + fullscreen) -->
-    <div class="project-card-advanced" style="margin-top: 22px;">
-      <div class="project-gallery">
-        <img class="bg active" src="assets/fb.png" alt="">
-        <img class="main active zoomable" src="assets/fb.png" alt="Facebook orders screenshot">
-      </div>
-
-      <div class="port-content">
-        <h4>💬 Facebook Business Page Order Management</h4>
-        <p>
-          I handled customer inquiries and order processing through Facebook Business Suite.
-          My tasks included replying to messages, confirming orders, collecting customer details, and coordinating deliveries.
-          I ensured fast, professional responses to maintain customer satisfaction and smooth order flow.
-          <br><br>
-          🛠 Tools used: Facebook Business Suite, Messenger, Google Sheets
-        </p>
-      </div>
-    </div>
-
-    <!-- DATA ENTRY -->
-    <div class="grid" style="margin-top: 22px;">
-      <div class="card col-12">
-        <h3>Data Entry for Assistance Programs</h3>
-        <p>
-          Encoded client information for educational and medical assistance programs, kept records clean, and supported inquiries.
-        </p>
-        <div class="meta">Focus: accuracy • confidentiality • organized records</div>
-      </div>
-    </div>
-
     <div class="spacer"></div>
 
-    <div class="card">
-      <h3>Want to see real samples?</h3>
-      <p>
-        I can provide short-form video samples.
-      </p>
-      <div class="spacer"></div>
-      <a class="btn" href="contact.html">Contact me</a>
-    </div>
-  </main>
+<main class="container section">
+  <h1 class="section-title">Own Sample Projects</h1>
+
+  <!-- VIDEO REELS (9:16) -->
+  <div class="thumb-simple-row reels-row">
+    <video class="thumb-reel" autoplay muted loop playsinline>
+      <source src="assets/reel1.mp4" type="video/mp4">
+    </video>
+
+    <video class="thumb-reel" autoplay muted loop playsinline>
+      <source src="assets/reel2.mp4" type="video/mp4">
+    </video>
+
+    <video class="thumb-reel" autoplay muted loop playsinline>
+      <source src="assets/reel3.mp4" type="video/mp4">
+    </video>
+
+    <video class="thumb-reel" autoplay muted loop playsinline>
+      <source src="assets/reel4.mp4" type="video/mp4">
+    </video>
+  </div>
+
+  <!-- GRAPHICS (16:9) -->
+  <div class="thumb-simple-row graphics-row">
+    <img src="assets/thumbnail1.png" class="thumb-graphic" alt="">
+    <img src="assets/thumbnail2.png" class="thumb-graphic" alt="">
+    <img src="assets/thumbnail3.png" class="thumb-graphic" alt="">
+    <img src="assets/thumbnail4.png" class="thumb-graphic" alt="">
+  </div>
+
+</main>
+
+
+
 
   <footer class="footer">
     <div class="container">
@@ -156,6 +147,7 @@
       if (mainImages.length <= 1) return;
 
       let index = 0;
+      const intervalMs = parseInt(gallery.getAttribute('data-slide-interval') || '2500', 10);
       setInterval(() => {
         bgImages[index].classList.remove("active");
         mainImages[index].classList.remove("active");
@@ -164,9 +156,8 @@
 
         bgImages[index].classList.add("active");
         mainImages[index].classList.add("active");
-      }, 2500);
+      }, intervalMs);
     });
   </script>
 </body>
 </html>
-

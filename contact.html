@@ -22,31 +22,31 @@
         <a href="about.html">About</a>
         <a href="services.html">Services</a>
         <a href="projects.html">Projects</a>
+        <a class="active" href="contact.html">Contact</a>
       </nav>
-
-      <a class="btn-pill active" href="contact.html">Contact</a>
+      <a class="btn-pill" href="contact.html">Contact</a>
     </div>
   </header>
 
   <main class="container section">
     <h1 class="section-title">Contact</h1>
     <p class="section-sub">
-      Want to work together? Send me details of the task and your preferred tools/output format.
+      Want to work together? Send me the task details and your preferred tools/output format.
     </p>
 
     <div class="contact-wrap">
       <div class="card">
         <h3>Send a message</h3>
-        <p class="note">This will open your email app with the message details.</p>
+        <p class="note">This will open Gmail compose (recommended). If it doesn’t work, it will open your email app.</p>
         <div class="spacer"></div>
 
-        <form class="form" onsubmit="return sendEmail();">
+        <form class="form" id="contactForm">
           <input class="input" id="name" type="text" placeholder="Your name" required />
           <input class="input" id="email" type="email" placeholder="Your email" required />
           <input class="input" id="subject" type="text" placeholder="Subject" required />
           <textarea class="input" id="message" placeholder="Message" required></textarea>
           <button class="btn" type="submit">Send via Email</button>
-          <p class="note">Tip: If mailto doesn’t work, just email me directly.</p>
+          <p class="note">Tip: You can also email me directly at <a href="mailto:leiramarieazurin@gmail.com">leiramarieazurin@gmail.com</a>.</p>
         </form>
       </div>
 
@@ -75,7 +75,7 @@
         </div>
 
         <div class="spacer"></div>
-        <a class="btn outline small-btn" href="assets/Resume_Azurin.pdf" target="_blank">Open Resume</a>
+        <a class="btn outline small-btn" href="assets/Resume_Azurin.pdf" target="_blank" rel="noopener">Open Resume</a>
       </div>
     </div>
   </main>
@@ -89,30 +89,44 @@
   <script>
     document.getElementById("y").textContent = new Date().getFullYear();
 
-    function sendEmail(){
-  const name = document.getElementById("name").value.trim();
-  const email = document.getElementById("email").value.trim();
-  const subject = document.getElementById("subject").value.trim();
-  const message = document.getElementById("message").value.trim();
+    const form = document.getElementById("contactForm");
 
-  const to = "leiramarieazurin@gmail.com";
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
 
-  const body = 
-    "Name: " + name + "\n" +
-    "Email: " + email + "\n\n" +
-    message;
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const subject = document.getElementById("subject").value.trim();
+      const message = document.getElementById("message").value.trim();
 
-  const gmailUrl = 
-    "https://mail.google.com/mail/?view=cm&fs=1" +
-    "&to=" + encodeURIComponent(to) +
-    "&su=" + encodeURIComponent(subject) +
-    "&body=" + encodeURIComponent(body);
+      const to = "leiramarieazurin@gmail.com";
 
-  window.open(gmailUrl, "_blank");
-  return false;
-}
+      const body =
+        "Name: " + name + "\n" +
+        "Email: " + email + "\n\n" +
+        message;
 
+      // ✅ Gmail compose link
+      const gmailUrl =
+        "https://mail.google.com/mail/?view=cm&fs=1" +
+        "&to=" + encodeURIComponent(to) +
+        "&su=" + encodeURIComponent(subject) +
+        "&body=" + encodeURIComponent(body);
+
+      // ✅ Fallback (mailto)
+      const mailtoUrl =
+        "mailto:" + encodeURIComponent(to) +
+        "?subject=" + encodeURIComponent(subject) +
+        "&body=" + encodeURIComponent(body);
+
+      // Try Gmail first
+      const opened = window.open(gmailUrl, "_blank");
+
+      // If blocked, use mailto
+      if (!opened) {
+        window.location.href = mailtoUrl;
+      }
+    });
   </script>
 </body>
 </html>
-
